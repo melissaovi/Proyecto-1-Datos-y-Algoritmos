@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Proyecto-1-Datos-y-Algoritmos.iml" filepath="$PROJECT_DIR$/.idea/Proyecto-1-Datos-y-Algoritmos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr.iml" filepath="$PROJECT_DIR$/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr.iml" filepath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr.iml" />
     </modules>
   </component>
 </project>
