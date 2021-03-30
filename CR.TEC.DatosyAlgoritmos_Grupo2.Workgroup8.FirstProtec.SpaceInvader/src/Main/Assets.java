@@ -2,7 +2,7 @@ package Main;
 
 import java.awt.image.BufferedImage;
 
-public class Assets {
+public class Assets{
 
     public static BufferedImage player;
 
