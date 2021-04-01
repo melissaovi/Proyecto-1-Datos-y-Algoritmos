@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f107c5ac-a033-427e-8c7b-3e429711039c" name="Default Changelist" comment="">
+    <list default="true" id="f107c5ac-a033-427e-8c7b-3e429711039c" name="Default Changelist" comment="Crear la clase de jugador &#10;Implementar la clase de disparo &#10;Crear el movimiento de la nave">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Enemies.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Shot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Space_Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Boss.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Enemies.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Invaders.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Rows/ARow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Rows/BRow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Rows/BasicRow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Rows/CRow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Rows/DRow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Enemies/Rows/ERow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Main/Assets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Main/Load.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Main/Window.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Menu_and_game_things/Game_Over.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Menu_and_game_things/Score_Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Space_ship/Ship.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr/Space_ship/Shot.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -39,17 +61,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Space_Invaders" />
   </component>
-  <component name="RunManager">
-    <configuration name="Window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main.Window" />
-      <module name="space_invaders.firtsProyec.workgroup8.DatosyAlgoritmos1.grupo2.tec.cr" />
+  <component name="RunManager" selected="Application.Window">
+    <configuration name="Prueb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Menu_and_game_things.Listas.Prueb" />
+      <module name="CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Main.*" />
+          <option name="PATTERN" value="Menu_and_game_things.Listas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -57,10 +80,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Window" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Window" />
+      <module name="CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Window" />
+        <item itemvalue="Application.Prueb" />
         <item itemvalue="Application.Window" />
+        <item itemvalue="Application.Prueb" />
         <item itemvalue="Application.Window" />
       </list>
     </recent_temporary>
@@ -85,6 +117,17 @@
       <workItem from="1617070727474" duration="12000" />
       <workItem from="1617070747432" duration="415000" />
       <workItem from="1617134915402" duration="601000" />
+      <workItem from="1617136848404" duration="251000" />
+      <workItem from="1617221299526" duration="696000" />
+      <workItem from="1617227992766" duration="505000" />
+      <workItem from="1617229079012" duration="211000" />
+      <workItem from="1617229743930" duration="52000" />
+      <workItem from="1617229910235" duration="1234000" />
+      <workItem from="1617231178796" duration="63000" />
+      <workItem from="1617293742611" duration="866000" />
+      <workItem from="1617295553341" duration="915000" />
+      <workItem from="1617298190131" duration="1950000" />
+      <workItem from="1617310018754" duration="4952000" />
     </task>
     <servers />
   </component>
