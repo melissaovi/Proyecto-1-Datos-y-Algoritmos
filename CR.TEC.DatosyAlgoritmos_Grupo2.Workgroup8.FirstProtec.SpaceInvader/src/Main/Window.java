@@ -1,5 +1,7 @@
 package Main;
 
+
+import Enemies.Alien;
 import Space_ship.Ship;
 
 import javax.swing.*;
@@ -13,7 +15,7 @@ public class Window extends JFrame implements Runnable {
     private Thread thread;
     private boolean running = false;
     Ship ship = null;
-
+    Alien a;
     private BufferStrategy bs;
     private Graphics g;
 
@@ -45,16 +47,25 @@ public class Window extends JFrame implements Runnable {
         // To add the option to move the ship with the mouse
         // NOTE: It must not be null, the player's object must go here
         ship=new Ship(this);
+
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
 
         add(canvas); // The canvas is added to the window
+        a=new Alien(this);
+        a.ColocarAliensenListaPrimero(a);
+
+
+
+
+
 
 
     }
 
     public static void main(String[] args) {
         new Window().start(); // call the window
+
     }
 
     private void update(){
@@ -76,6 +87,7 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
+        a.drawAlien(g);
 
 
         //g.drawImage(Assets.player, WIDTH/2, HEIGHT-100, null);
