@@ -1,8 +1,11 @@
 package Enemies;
+
 import Menu_and_game_things.Listas.ListasEnlazadas;
 import Space_ship.Ship;
 import java.awt.*;
+
 public class Alien {
+    
     public static int ALIEN_HEIGHT = 10;
     public static int ALIEN_WIDTH = 15;
     private int leftPosition = 0;
@@ -18,6 +21,7 @@ public class Alien {
     public Alien(Window si) {
         spaceInvaders = si;
     }
+
     public void ColocarAliensenListaPrimero(Alien alien) {
         for (int i = 0; i < 10; i++) {
             lista.insertHead(alien);
@@ -25,9 +29,11 @@ public class Alien {
         System.out.println(lista.gett(4));
         System.out.println(lista.gett(2));
     }
+
     public boolean hasBeenHit() {
         return hitState;
     }
+
     public boolean hitAlien(int x, int y) {
         //Is the alien currently alive?
         if (hitState) {
@@ -45,6 +51,7 @@ public class Alien {
         }
         return false;
     }
+
     public void setPosition(int x, int y) {
         leftPosition = x;
         heightPosition = y;
@@ -53,9 +60,11 @@ public class Alien {
     public int getXPos() {
         return leftPosition;
     }
+
     public int getYPos() {
         return heightPosition;
     }
+
     public void drawAlien(Graphics g) {
         if (!hitState) {
             for (int i = 0; i < lista.getSize(); i++) {
@@ -64,5 +73,6 @@ public class Alien {
             }
         }
     }
+
 }
 
