@@ -1,5 +1,9 @@
 package Main;
 
+
+import Enemies.Alien;
+import Space_ship.Ship;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -10,7 +14,8 @@ public class Window extends JFrame implements Runnable {
     private Canvas canvas;
     private Thread thread;
     private boolean running = false;
-
+    Ship ship = null;
+    Alien a;
     private BufferStrategy bs;
     private Graphics g;
 
@@ -20,7 +25,10 @@ public class Window extends JFrame implements Runnable {
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
 
+
+
     public Window(){
+
         setTitle("Space invaders"); // Set a title
         setSize(WIDTH, HEIGHT); // set a size of the window
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Necessary to be able to close the window
@@ -38,48 +46,54 @@ public class Window extends JFrame implements Runnable {
 
         // To add the option to move the ship with the mouse
         // NOTE: It must not be null, the player's object must go here
-        canvas.addMouseListener(null);
-        canvas.addMouseMotionListener(null);
+        ship=new Ship(this);
+
+        canvas.addMouseListener(ship);
+        canvas.addMouseMotionListener(ship);
 
         add(canvas); // The canvas is added to the window
+        a=new Alien(this);
+        a.ColocarAliensenListaPrimero(a);
 
     }
 
     public static void main(String[] args) {
         new Window().start(); // call the window
+
     }
 
     private void update(){
-        //...
+        a.moveAlien();
     }
 
-    private void draw(){
+    public void draw(){
         bs = canvas.getBufferStrategy();
-
         if (bs == null){
             canvas.createBufferStrategy(3); // 3 is a number of buffers that the canvas use
             return;
         }
-
         g = bs.getDrawGraphics();
 
         // ===== The drawing starts here
-
         g.setColor(Color.BLACK);
 
         g.fillRect(0,0,WIDTH, HEIGHT);
 
-        g.drawImage(Assets.player, WIDTH/2, HEIGHT-100, null);
+        //Draws the players ship
+        ship.drawShip(g);
+        a.drawAlien(g);
 
-        // ===== The drawing ends here
+
+        //g.drawImage(Assets.player, WIDTH/2, HEIGHT-100, null);
 
         g.dispose();
+
         bs.show();
     }
 
     private void init(){
         Assets.init(); // con esto cargamos todos los recursos que necesitaramosdesde la
-                        // carpeta assets que los carga desde Load
+        // carpeta assets que los carga desde Load
     }
 
     @Override
