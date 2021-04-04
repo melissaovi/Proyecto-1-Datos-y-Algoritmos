@@ -1,0 +1,20 @@
+Index: CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Enemies;\nimport Menu_and_game_things.Listas.ListasEnlazadas;\nimport Space_ship.Ship;\nimport java.awt.*;\npublic class Alien {\n    public static int ALIEN_HEIGHT = 10;\n    public static int ALIEN_WIDTH = 15;\n    private int leftPosition = 0;\n    private int heightPosition = 0;\n    private boolean hitState = false;\n    private Image alienImage = null;\n\n    Window spaceInvaders = null;\n    //Alien a=new Alien(spaceInvaders,null);\n\n    private ListasEnlazadas lista = new ListasEnlazadas();\n\n    public Alien(Window si) {\n        spaceInvaders = si;\n    }\n    public void ColocarAliensenListaPrimero(Alien alien) {\n        for (int i = 0; i < 10; i++) {\n            lista.insertHead(alien);\n        }\n        System.out.println(lista.gett(4));\n        System.out.println(lista.gett(2));\n    }\n    public boolean hasBeenHit() {\n        return hitState;\n    }\n    public boolean hitAlien(int x, int y) {\n        //Is the alien currently alive?\n        if (hitState) {\n            //If it's alreay been shot then return false;\n            return false;\n        }\n        //First lets check the X range\n        if ((x >= leftPosition) && (x <= (leftPosition + ALIEN_WIDTH))) {\n            //X is ok, now lets check the Y range\n            if ((y >= heightPosition) && (y <= (heightPosition + ALIEN_HEIGHT))) {\n                //We shot an alien!\n                hitState = true;\n                return true;\n            }\n        }\n        return false;\n    }\n    public void setPosition(int x, int y) {\n        leftPosition = x;\n        heightPosition = y;\n    }\n\n    public int getXPos() {\n        return leftPosition;\n    }\n    public int getYPos() {\n        return heightPosition;\n    }\n    public void drawAlien(Graphics g) {\n        if (!hitState) {\n            for (int i = 0; i < lista.getSize(); i++) {\n                g.setColor(Color.red);\n                g.fillRect(leftPosition+50*i, heightPosition, ALIEN_WIDTH, ALIEN_HEIGHT);\n            }\n        }\n    }\n}\n\n
+===================================================================
+diff --git a/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java b/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java
+--- a/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java	
++++ b/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java	
+@@ -1,8 +1,11 @@
+ package Enemies;
++
+ import Menu_and_game_things.Listas.ListasEnlazadas;
+ import Space_ship.Ship;
+ import java.awt.*;
++
+ public class Alien {
++    
+     public static int ALIEN_HEIGHT = 10;
+     public static int ALIEN_WIDTH = 15;
+     private int leftPosition = 0;
