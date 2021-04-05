@@ -1,18 +1,18 @@
 package Menu_and_game_things.Listas;
 
-public class ListasEnlazadas {
+import Enemies.Alien;
+import Main.Window;
 
+public class ListasEnlazadas{
     private Nodo head;
     private Nodo last;
     private int size;
-
     // constructor
     public ListasEnlazadas(){
         head = null;
         last = null;
         size = 0;
     }
-
     // gets the value of a space in the list
     public Object gett(int index){
         int cont = 0;
@@ -66,7 +66,6 @@ public class ListasEnlazadas {
             }
         }
     }
-
     // delete a element of list
     public void delete(int index){
         if (index == 0) {
