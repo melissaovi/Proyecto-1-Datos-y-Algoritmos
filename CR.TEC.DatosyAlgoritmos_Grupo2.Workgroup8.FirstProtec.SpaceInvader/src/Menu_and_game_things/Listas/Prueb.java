@@ -1,9 +1,10 @@
+/*
 package Menu_and_game_things.Listas;
 
 public class Prueb {
     public static void main(String[] args) {
 
-        ListasEnlazadas lista = new ListasEnlazadas();
+        ListasEnlazadas lista = new ListasEnlazadas(t);
 
         System.out.println("Vacia? "+lista.estaVacia());
 
@@ -25,3 +26,4 @@ public class Prueb {
         System.out.println("Cuarto elemento: "+lista.gett(3));
     }
 }
+*/

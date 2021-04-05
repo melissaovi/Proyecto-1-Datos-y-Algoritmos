@@ -2,9 +2,9 @@ package Menu_and_game_things.Listas;
 
 public class Nodo {
 
-    private Nodo next;
+    public Nodo next;
     private Nodo previous;
-    private Object fact;
+    public Object fact;
 
     public Nodo(Object obj, Nodo ant, Nodo sig){
         next = sig;

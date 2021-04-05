@@ -15,12 +15,12 @@ public class Window extends JFrame implements Runnable {
     private Thread thread;
     private boolean running = false;
     Ship ship = null;
-    Alien a;
+    Alien army;
     private BufferStrategy bs;
     private Graphics g;
 
     // Variables para controlar los fps del juego
-    private final int FPS = 60;
+    private final int FPS = 10;
     private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
@@ -52,15 +52,8 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseMotionListener(ship);
 
         add(canvas); // The canvas is added to the window
-        a=new Alien(this);
-        a.ColocarAliensenListaPrimero(a);
-
-
-
-
-
-
-
+        army=new Alien(this);
+        army.ColocarAliensenListaPrimero(army);
     }
 
     public static void main(String[] args) {
@@ -69,7 +62,7 @@ public class Window extends JFrame implements Runnable {
     }
 
     private void update(){
-
+        army.moveAlien();
     }
 
     public void draw(){
@@ -87,9 +80,10 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
-        a.drawAlien(g);
+        army.drawAlien(g);
+        //army.Test(army,g);
 
-
+        //
         //g.drawImage(Assets.player, WIDTH/2, HEIGHT-100, null);
 
         g.dispose();
