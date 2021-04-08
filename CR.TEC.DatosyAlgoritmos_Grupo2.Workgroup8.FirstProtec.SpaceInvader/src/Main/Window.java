@@ -11,17 +11,15 @@ import java.awt.image.BufferStrategy;
 public class Window extends JFrame implements Runnable {
 
     public static final int WIDTH = 600, HEIGHT = 700;
-    private Canvas canvas;
+    private final Canvas canvas;
     private Thread thread;
     private boolean running = false;
-    Ship ship = null;
+    Ship ship;
     Alien army;
-    private BufferStrategy bs;
-    private Graphics g;
+    Boolean start_game= true;
 
     // Variables para controlar los fps del juego
     private final int FPS = 10;
-    private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
 
@@ -48,6 +46,7 @@ public class Window extends JFrame implements Runnable {
         // NOTE: It must not be null, the player's object must go here
         ship=new Ship(this);
 
+
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
 
@@ -62,16 +61,16 @@ public class Window extends JFrame implements Runnable {
     }
 
     private void update(){
-        army.moveAlien();
+        //army.moveAlien();
     }
 
     public void draw(){
-        bs = canvas.getBufferStrategy();
+        BufferStrategy bs = canvas.getBufferStrategy();
         if (bs == null){
             canvas.createBufferStrategy(3); // 3 is a number of buffers that the canvas use
             return;
         }
-        g = bs.getDrawGraphics();
+        Graphics g = bs.getDrawGraphics();
 
         // ===== The drawing starts here
         g.setColor(Color.BLACK);
@@ -80,7 +79,14 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
-        army.drawAlien(g);
+        if (start_game) {
+            army.drawAlien(g, true);
+            start_game=false;
+
+        }else{
+            army.drawAlien(g, false);
+        }
+
         //army.Test(army,g);
 
         //
@@ -108,7 +114,9 @@ public class Window extends JFrame implements Runnable {
 
         while (running){
             now = System.nanoTime();
-            delta += (now - lastTime)/TARGETTIME; // esta division nos deberia dar 1
+            // Time measured in nanoseconds
+            double TARGETTIME = 1000000000 / FPS;
+            delta += (now - lastTime)/ TARGETTIME; // esta division nos deberia dar 1
             time += (now - lastTime);
             lastTime = now;
 

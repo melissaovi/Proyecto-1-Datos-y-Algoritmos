@@ -1,32 +1,36 @@
 package Space_ship;
 
 import java.awt.*;
+import Enemies.Alien;
 /**
  *
  */
-public class Shot implements Runnable {
+public class Shot implements Runnable  {
     //Atributos de la clase de disparo
     private int shotSpeed = 2;
     private int SHOT_WIDTH = 4;
     private int SHOT_HEIGHT = 10;
-    private int x = 0;
+    private static int x_position = 0;
 
-    private int shotHeight = 0;
+    private static int shotHeight = 0;
 
     boolean shotState = true;
 
     public Shot(int xVal, int yVal) {
-        x = xVal;//La posicion de la bala
-        shotHeight = yVal;
-        Thread thread = new Thread(this);
-        thread.start();
+        if (xVal != 0 && yVal !=0 ) {
+            x_position = xVal;//La posicion de la bala en x
+            shotHeight = yVal;
+            Thread thread = new Thread(this);
+            thread.start();
+        }
     }
 
     /**
      *
      */
-    private boolean moveShot() {
-        shotHeight = shotHeight - 2;
+    public boolean moveShot() {
+        this.shotHeight = shotHeight - 2;
+
 
         //Si la bala sale del limite de la pantalla
         if (shotHeight < 0) {
@@ -44,7 +48,7 @@ public class Shot implements Runnable {
         } else {
             g.setColor(Color.black);
         }
-        g.fillRect(x, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
+        g.fillRect(x_position, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
     }
 
     public boolean getShotState() {
@@ -64,6 +68,18 @@ public class Shot implements Runnable {
             }
 
         }
+    }
+
+    public void Shot_hit(){
+        //algo
+    }
+
+    public static int getYPos_ofBullet() {
+        return shotHeight;
+    }
+
+    public static int getXPos_ofBullet() {
+        return x_position;
     }
 
 }

@@ -24,6 +24,16 @@ public class ListasEnlazadas{
         return temp.getvalue();
     }
 
+    public Nodo gettt(int index){
+        int cont = 0;
+        Nodo temp = head;
+        while (cont < index){
+            temp = temp.getNext();
+            cont++;
+        }
+        return temp;
+    }
+
     // add to the beginning of the list
     public void insertHead(Object obj) {
         if (head == null) {

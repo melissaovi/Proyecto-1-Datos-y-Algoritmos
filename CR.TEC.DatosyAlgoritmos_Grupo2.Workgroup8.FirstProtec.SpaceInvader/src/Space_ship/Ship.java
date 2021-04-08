@@ -5,14 +5,14 @@ import java.awt.event.*;
 import java.awt.*;
 public class Ship implements MouseListener, MouseMotionListener {
 
-    private int x = 0;
+    private int x_position = 0;
     Window window;
     private int heightPosition = 0;//La posicion de la nave respecto al tamaño de la ventana
     Shot shot = null;//Estaod de disparo
     //Constructor de la clase ship
     public Ship(Window si) {
         window = si;
-        x = (int) ((Window.WIDTH / 2) + (50 / 2));
+        x_position = (int) ((Window.WIDTH / 2) + (50 / 2));
         heightPosition = Window.HEIGHT - 38-75;
     }
 
@@ -20,15 +20,15 @@ public class Ship implements MouseListener, MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         int newX = e.getX();//Get the mouse coordinates
         if (newX > (Window.WIDTH - 65)) {
-            x = Window.WIDTH - 65;
+            x_position = Window.WIDTH - 65;
         } else {
-            x = newX;
+            x_position = newX;
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        shot = new Shot(x + (int) (50 / 2), heightPosition);
+        shot = new Shot(x_position + (int) (50 / 2), heightPosition);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Ship implements MouseListener, MouseMotionListener {
     }
     //Dibujar la nave
     public void drawShip(Graphics g) {
-        g.drawImage(Assets.player, x, 600, null);
+        g.drawImage(Assets.player, x_position, 600, null);
         if ((shot != null) && (shot.getShotState())) {
             shot.drawShot(g);
         }
