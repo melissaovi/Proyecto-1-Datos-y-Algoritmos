@@ -1,9 +1,7 @@
 package Menu_and_game_things.Listas;
 
-import Enemies.Alien;
-import Main.Window;
 
-public class ListasEnlazadas{
+public class ListasEnlazadas<Object>{
     private Nodo head;
     private Nodo last;
     private int size;
@@ -21,7 +19,7 @@ public class ListasEnlazadas{
             temp = temp.getNext();
             cont++;
         }
-        return temp.getvalue();
+        return (Object) temp.getvalue();
     }
 
     // add to the beginning of the list
