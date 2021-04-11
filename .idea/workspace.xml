@@ -3,21 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="f107c5ac-a033-427e-8c7b-3e429711039c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Alien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Aliens1.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Aliens1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/AliensBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/AliensBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/ListasEnlazadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/ListasEnlazadas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/Nodo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/Prueb.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/Prueb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Alien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Alien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Shot.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Shot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Aliens1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Aliens1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/AliensBasic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/AliensBasic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Main/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Main/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/ListasEnlazadas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/ListasEnlazadas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/Nodo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/Nodo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/Prueb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Space_ship/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Space_ship/Shot.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -81,19 +85,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Window" />
@@ -150,8 +141,38 @@
       <workItem from="1617501792942" duration="695000" />
       <workItem from="1617502795102" duration="2252000" />
       <workItem from="1617509493126" duration="759000" />
-      <workItem from="1617571047405" duration="10345000" />
+      <workItem from="1617571047405" duration="10975000" />
+      <workItem from="1617653754110" duration="976000" />
+      <workItem from="1617753080301" duration="6873000" />
+      <workItem from="1617836291205" duration="96000" />
+      <workItem from="1617836406659" duration="95000" />
+      <workItem from="1617836507128" duration="16000" />
+      <workItem from="1617836542773" duration="337000" />
+      <workItem from="1617836920955" duration="203000" />
+      <workItem from="1617837140108" duration="267000" />
+      <workItem from="1617838753876" duration="640000" />
+      <workItem from="1617846388156" duration="222000" />
+      <workItem from="1617909900058" duration="1489000" />
+      <workItem from="1617923613435" duration="18015000" />
+      <workItem from="1618068347927" duration="8416000" />
+      <workItem from="1618085166963" duration="2967000" />
+      <workItem from="1618088177009" duration="6876000" />
     </task>
+    <task id="LOCAL-00001" summary="Mejorar el movimiento de los enemigos">
+      <created>1617581670492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617581670492</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Modificar el movimiento de los aliens,modificar la clase de aliens,agregar imagenes a los aliens.">
+      <created>1618076255671</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618076255671</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +192,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Crear metodos para colocar los enemigos en la lista enlazada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crear metodos para colocar los enemigos en la lista enlazada" />
+    <MESSAGE value="Mejorar el movimiento de los enemigos" />
+    <MESSAGE value="Modificar el movimiento de los aliens,modificar la clase de aliens,agregar imagenes a los aliens." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificar el movimiento de los aliens,modificar la clase de aliens,agregar imagenes a los aliens." />
   </component>
 </project>
