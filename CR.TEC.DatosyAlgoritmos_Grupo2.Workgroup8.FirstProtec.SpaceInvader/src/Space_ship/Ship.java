@@ -1,18 +1,31 @@
 package Space_ship;
+import Enemies.AlienA;
+import Enemies.AliensBasic;
 import Main.Assets;
 import Main.Window;
-import java.awt.event.*;
+
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 public class Ship implements MouseListener, MouseMotionListener {
 
-    private int x_position = 0;
-    Window window;
-    private int heightPosition = 0;//La posicion de la nave respecto al tamaño de la ventana
-    Shot shot = null;//Estaod de disparo
+    public int x = 0;
+    Window window=null;
+    public int heightPosition = 0;//La posicion de la nave respecto al tamaño de la ventana
+    Shot shot = null;//Estado de disparo
+
+    boolean hitState=false;
+
+    public static int SHIP_HEIGHT = 38;
+    public static int SHIP_WIDTH = 50;
+
+
+
     //Constructor de la clase ship
     public Ship(Window si) {
         window = si;
-        x_position = (int) ((Window.WIDTH / 2) + (50 / 2));
+        x = (int) ((Window.WIDTH / 2) + (50 / 2));
         heightPosition = Window.HEIGHT - 38-75;
     }
 
@@ -20,15 +33,18 @@ public class Ship implements MouseListener, MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         int newX = e.getX();//Get the mouse coordinates
         if (newX > (Window.WIDTH - 65)) {
-            x_position = Window.WIDTH - 65;
+            x = Window.WIDTH - 65;
         } else {
-            x_position = newX;
+            x = newX;
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        shot = new Shot(x_position + (int) (50 / 2), heightPosition);
+        AliensBasic ene=window.getAlienArmy();
+        AlienA ali= window.getAli();
+        //Alien army = window.getAlienArmy();
+        shot = new Shot(x +(50 / 2), heightPosition,ene,ali);
     }
 
     @Override
@@ -52,10 +68,9 @@ public class Ship implements MouseListener, MouseMotionListener {
     }
     //Dibujar la nave
     public void drawShip(Graphics g) {
-        g.drawImage(Assets.player, x_position, 600, null);
+        g.drawImage(Assets.player, x, 600, null);
         if ((shot != null) && (shot.getShotState())) {
             shot.drawShot(g);
         }
-
     }
 }

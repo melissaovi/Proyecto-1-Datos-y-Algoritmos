@@ -1,7 +1,7 @@
 package Main;
 
-
-import Enemies.Alien;
+import Enemies.AlienA;
+import Enemies.AliensBasic;
 import Space_ship.Ship;
 
 import javax.swing.*;
@@ -9,24 +9,28 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Window extends JFrame implements Runnable {
-
     public static final int WIDTH = 600, HEIGHT = 700;
-    private final Canvas canvas;
+    private Canvas canvas;
     private Thread thread;
     private boolean running = false;
-    Ship ship;
-    Alien army;
-    Boolean start_game= true;
+    Ship ship = null;
+    AliensBasic ene;
+    AlienA ali;
+    private BufferStrategy bs;
+    private Graphics g;
+    private int score = 0;
 
     // Variables para controlar los fps del juego
     private final int FPS = 10;
+    private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
-
+    public int shotHeight;
 
 
     public Window(){
-
+        addWindowListener (new java.awt.event.WindowAdapter() {
+            @Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { System.exit(0);}});
         setTitle("Space invaders"); // Set a title
         setSize(WIDTH, HEIGHT); // set a size of the window
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Necessary to be able to close the window
@@ -46,31 +50,35 @@ public class Window extends JFrame implements Runnable {
         // NOTE: It must not be null, the player's object must go here
         ship=new Ship(this);
 
-
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
-
         add(canvas); // The canvas is added to the window
-        army=new Alien(this);
-        army.ColocarAliensenListaPrimero(army);
+        ene=new AliensBasic(0,0,10,5,1);
+        ali=new AlienA(0,100,10,5,1);
     }
+   /* public  hitAlienScore() {
+        //Add 5 to the score
+        score += 5;
+        System.out.println("Current Score = "+score);
+    }*/
 
     public static void main(String[] args) {
         new Window().start(); // call the window
 
     }
 
-    private void update(){
-        //army.moveAlien();
+    public void update(){
+        ene.moveArmy();
+        ali.moveArmy();
     }
 
     public void draw(){
-        BufferStrategy bs = canvas.getBufferStrategy();
+        bs = canvas.getBufferStrategy();
         if (bs == null){
             canvas.createBufferStrategy(3); // 3 is a number of buffers that the canvas use
             return;
         }
-        Graphics g = bs.getDrawGraphics();
+        g = bs.getDrawGraphics();
 
         // ===== The drawing starts here
         g.setColor(Color.BLACK);
@@ -79,19 +87,9 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
-        if (start_game) {
-            army.drawAlien(g, true);
-            start_game=false;
 
-        }else{
-            army.drawAlien(g, false);
-        }
-
-        //army.Test(army,g);
-
-        //
-        //g.drawImage(Assets.player, WIDTH/2, HEIGHT-100, null);
-
+        ene.draw(g);
+        ali.draw(g);
         g.dispose();
 
         bs.show();
@@ -114,9 +112,7 @@ public class Window extends JFrame implements Runnable {
 
         while (running){
             now = System.nanoTime();
-            // Time measured in nanoseconds
-            double TARGETTIME = 1000000000 / FPS;
-            delta += (now - lastTime)/ TARGETTIME; // esta division nos deberia dar 1
+            delta += (now - lastTime)/TARGETTIME; // esta division nos deberia dar 1
             time += (now - lastTime);
             lastTime = now;
 
@@ -137,6 +133,13 @@ public class Window extends JFrame implements Runnable {
             }
         }
         stop();
+    }
+    public AliensBasic getAlienArmy() {
+        return ene;
+
+    }
+    public AlienA getAli(){
+        return ali;
     }
 
     // Method to start the thread.

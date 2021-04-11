@@ -1,44 +1,48 @@
 package Space_ship;
 
+import Enemies.AlienA;
+import Enemies.AliensBasic;
+
 import java.awt.*;
-import Enemies.Alien;
-/**
- *
- */
-public class Shot implements Runnable  {
+public class Shot implements Runnable {
     //Atributos de la clase de disparo
     private int shotSpeed = 2;
     private int SHOT_WIDTH = 4;
     private int SHOT_HEIGHT = 10;
-    private static int x_position = 0;
+    public int x = 0;
+    AliensBasic ene;
+    AlienA ali;
+    public int shotHeight = 0;
 
-    private static int shotHeight = 0;
+    public static boolean shotState = true;
 
-    boolean shotState = true;
-
-    public Shot(int xVal, int yVal) {
-        if (xVal != 0 && yVal !=0 ) {
-            x_position = xVal;//La posicion de la bala en x
-            shotHeight = yVal;
-            Thread thread = new Thread(this);
-            thread.start();
-        }
+    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb) {
+        x = xVal;//La posicion de la bala
+        shotHeight = yVal;
+        ene=aa;
+        ali=bb;
+        Thread thread = new Thread(this);
+        thread.start();
     }
-
-    /**
-     *
-     */
-    public boolean moveShot() {
-        this.shotHeight = shotHeight - 2;
-
-
-        //Si la bala sale del limite de la pantalla
-        if (shotHeight < 0) {
-            System.out.println("Bullet out of bound");
+    private boolean moveShot(){
+        if(ene.checkShot(x,shotHeight)){
+            //ene.getEnemies().delete(i);
+            System.out.println("We shot an alien!");
+            shotState = false;
+            return true;
+        }
+        if(ali.checkShot(x,shotHeight)){
+            System.out.println("We shot an alien 2222!");
             shotState = false;
             return true;
         }
 
+        shotHeight = shotHeight - 2;
+        //Si la bala sale del limite de la pantalla
+        if (shotHeight < 0) {
+            shotState = false;
+            return true;
+        }
         return false;
     }
 
@@ -48,7 +52,7 @@ public class Shot implements Runnable  {
         } else {
             g.setColor(Color.black);
         }
-        g.fillRect(x_position, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
+        g.fillRect(x, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
     }
 
     public boolean getShotState() {
@@ -68,18 +72,6 @@ public class Shot implements Runnable  {
             }
 
         }
-    }
-
-    public void Shot_hit(){
-        //algo
-    }
-
-    public static int getYPos_ofBullet() {
-        return shotHeight;
-    }
-
-    public static int getXPos_ofBullet() {
-        return x_position;
     }
 
 }
