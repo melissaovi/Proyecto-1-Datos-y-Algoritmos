@@ -1,5 +1,6 @@
 package Space_ship;
 
+import Enemies.AlienA;
 import Enemies.AliensBasic;
 
 import java.awt.*;
@@ -10,36 +11,38 @@ public class Shot implements Runnable {
     private int SHOT_HEIGHT = 10;
     public int x = 0;
     AliensBasic ene;
+    AlienA ali;
     public int shotHeight = 0;
 
-    boolean shotState = true;
+    public static boolean shotState = true;
 
-    public Shot(int xVal, int yVal,AliensBasic aa) {
+    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
         ene=aa;
+        ali=bb;
         Thread thread = new Thread(this);
         thread.start();
     }
     private boolean moveShot(){
-        for (int i = 0;i<ene.getEnemies().getSize();i++){
-            if(ene.checkShot(x,shotHeight)){
-                ene.getEnemies().delete(i);
-                System.out.println("We shot an alien!");
-                shotState = false;
-                return true;
-            }
+        if(ene.checkShot(x,shotHeight)){
+            //ene.getEnemies().delete(i);
+            System.out.println("We shot an alien!");
+            shotState = false;
+            return true;
         }
-
-
-        shotHeight = shotHeight - 2;
-        //Si la bala sale del limite de la pantalla
-        if (shotHeight < 0) {
-            System.out.println("Bullet out of bound");
+        if(ali.checkShot(x,shotHeight)){
+            System.out.println("We shot an alien 2222!");
             shotState = false;
             return true;
         }
 
+        shotHeight = shotHeight - 2;
+        //Si la bala sale del limite de la pantalla
+        if (shotHeight < 0) {
+            shotState = false;
+            return true;
+        }
         return false;
     }
 

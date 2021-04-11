@@ -1,18 +1,26 @@
 package Enemies;
 
-import Main.Assets;
+import Main.Load;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
+import static Space_ship.Shot.shotState;
 
 public class Enemy {
-    private int posX, posY, width, height,speed;
+    private BufferedImage sprite;
+    private int posX, posY, width, height,speed,life;
     private boolean hitState = false;
-    public Enemy(int posX, int posY, int width, int height, int speed) {
+    private boolean boss;
+    public Enemy(int posX, int posY, int width, int height, int speed,int life,BufferedImage sprite) {
         this.posX = posX;
         this.posY = posY;
         this.width = width;
         this.height = height;
         this.speed=speed;
+        this.life=life;
+        this.sprite=sprite;
+        this.boss=false;
     }
     public boolean hasBeenHit() {
         return hitState;
@@ -20,19 +28,26 @@ public class Enemy {
     public boolean hitAlien(int x,int y){
         if (hitState) {
             //If it's alreay been shot then return false;
+            shotState=true;
             return false;
         }
         if ((x >= posX) && (x <= (posX+width))) {
             //X is ok, now lets check the Y range
             if ((y >= posY) && (y <= (posY+height))) {
-                //We shot an alien!
-                hitState = true;
-                return true;
+                if(getLife()>0){
+                    shotState=false;
+                    this.life-=1;
+                    hitState = false;
+                    System.out.println("works");
+                    return false;
+                }else{
+                    hitState = true;
+                    return true;
+                }
             }
         }
         return false;
     }
-
     public int getPosX() {
         return posX;
     }
@@ -65,8 +80,26 @@ public class Enemy {
         this.height = height;
     }
     public int getSpeed(int speed){return speed;}
+    public BufferedImage getSprite() {
+        return sprite;
+    }
+    public void Boss() {
+        this.boss = true;
+        this.life =50;
+        this.setWidth(30);
+        this.setHeight(50);
+        this.sprite= Load.imageLoad("/player.png");
+    }
+    public boolean isBoss() {
+        return boss;
+    }
+    public int getLife(){
+        return life;
+    }
     public void draw(Graphics g) {
-        g.drawImage(Assets.alien,this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight(), null);
+        if(!hitState){
+            g.drawImage(this.getSprite(),this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight(), null);
+        }
     }
     public void updated(double delta) {
     }

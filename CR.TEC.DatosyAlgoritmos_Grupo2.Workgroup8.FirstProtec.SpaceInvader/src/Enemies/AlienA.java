@@ -4,11 +4,14 @@ import Main.Load;
 import Menu_and_game_things.Listas.ListasEnlazadas;
 
 import java.awt.*;
+import java.util.Random;
 
-public class AliensBasic extends Aliens1{
+public class AlienA extends Aliens1{
     private boolean movingRight = true;
     private int downDistance=50;
-    public AliensBasic(int posX, int posY, int speed, int size, int lvl) {
+    Random rand = new Random();
+    int a = rand.nextInt(4);
+    public AlienA(int posX, int posY, int speed, int size, int lvl) {
         super(posX, posY, speed, size, lvl);
         int counter = 0;
         this.setEnemies(new ListasEnlazadas<>());
@@ -18,6 +21,8 @@ public class AliensBasic extends Aliens1{
             this.getEnemies().insertHead(enemy);
             counter++;
         }
+        this.getEnemies().gett(a).Boss();
+        this.setHaveBoss(true);
     }
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
@@ -63,57 +68,6 @@ public class AliensBasic extends Aliens1{
                 return true;
             }
         }
-
         return false;
     }
-
-/*    public void update(int sp) {
-        int wid=560;
-        for (int c = 0; c < this.getEnemies().getSize(); c++) {
-            if(this.getEnemies().gett(c).getPosX()<wid){
-                this.getEnemies().gett(c).setPosX(this.getEnemies().gett(c).getPosX()+this.getSpeed());
-                //this.getEnemies().gett(c).updated(delta);
-            }else{
-                wid=0;
-                movedown();
-                break;
-            }
-        }
-    }
-
-    public void movedown(){
-        int bajar=100;
-        for (int c = 0; c < this.getEnemies().getSize(); c++) {
-            if(this.getEnemies().gett(c).getPosY()<bajar){
-                this.getEnemies().gett(c).setPosY(this.getEnemies().gett(c).getPosY()+this.getSpeed());
-                //this.getEnemies().gett(c).updated(delta);
-            }else{
-                update(-5);
-                break;
-            }
-
-        }
-    }
-    public void moveleft(){
-        for (int c = 4; c>=0;c--) {
-            if(this.getEnemies().gett(c).getPosX()>0){
-                this.getEnemies().gett(c).setPosX(this.getEnemies().gett(c).getPosX()-this.getSpeed());
-                //this.getEnemies().gett(c).updated(delta);
-            }else{
-                break;
-            }
-        }
-    }
- for (int a = 4; a>=0; --a){
-        if (this.getEnemies().gett(a).getPosX()>bajar){
-            this.arr();
-            //this.getEnemies().gett(a).setPosX(this.getEnemies().gett(a).getPosX()-400);
-        }else{break;}
-    }*/
-
-
-
-
-
-
 }

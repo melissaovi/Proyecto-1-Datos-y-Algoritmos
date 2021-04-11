@@ -1,9 +1,5 @@
-package Enemies
-
-;
-
+package Enemies;
 import Menu_and_game_things.Listas.ListasEnlazadas;
-
 public abstract class Aliens1 {
     private ListasEnlazadas<Enemy> enemy;
     private int posX, posY, speed;
@@ -47,6 +43,13 @@ public abstract class Aliens1 {
     public void setHaveBoss(boolean haveBoss) {
         this.haveBoss = haveBoss;
     }
+
+
+
+
+
+
+
 /*    public void arrangeLine() {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             //this.getEnemies().gett(c).setPosX(0);

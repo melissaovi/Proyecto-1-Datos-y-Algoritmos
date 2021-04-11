@@ -1,5 +1,6 @@
 package Main;
 
+import Enemies.AlienA;
 import Enemies.AliensBasic;
 import Space_ship.Ship;
 
@@ -14,7 +15,7 @@ public class Window extends JFrame implements Runnable {
     private boolean running = false;
     Ship ship = null;
     AliensBasic ene;
-
+    AlienA ali;
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
@@ -53,6 +54,7 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
         ene=new AliensBasic(0,0,10,5,1);
+        ali=new AlienA(0,100,10,5,1);
     }
    /* public  hitAlienScore() {
         //Add 5 to the score
@@ -67,6 +69,7 @@ public class Window extends JFrame implements Runnable {
 
     public void update(){
         ene.moveArmy();
+        ali.moveArmy();
     }
 
     public void draw(){
@@ -86,6 +89,7 @@ public class Window extends JFrame implements Runnable {
         ship.drawShip(g);
 
         ene.draw(g);
+        ali.draw(g);
         g.dispose();
 
         bs.show();
@@ -132,6 +136,10 @@ public class Window extends JFrame implements Runnable {
     }
     public AliensBasic getAlienArmy() {
         return ene;
+
+    }
+    public AlienA getAli(){
+        return ali;
     }
 
     // Method to start the thread.
