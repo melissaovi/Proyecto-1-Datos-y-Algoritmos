@@ -59,7 +59,7 @@ public class AliensBasic extends Aliens1{
     }
     public boolean checkShot(int x, int y) {
         for (int i = 0;i<this.getEnemies().getSize();i++){
-            if (this.getEnemies().gett(i).hitAlien(x, y)) {
+            if (this.getEnemies().gett(i).hitAlien(x, y, false)) {
                 return true;
             }
         }

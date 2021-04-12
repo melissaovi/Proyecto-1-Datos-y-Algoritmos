@@ -69,7 +69,9 @@ public class Ship implements MouseListener, MouseMotionListener {
     //Dibujar la nave
     public void drawShip(Graphics g) {
         g.drawImage(Assets.player, x, 600, null);
+
         if ((shot != null) && (shot.getShotState())) {
+
             shot.drawShot(g);
         }
     }
