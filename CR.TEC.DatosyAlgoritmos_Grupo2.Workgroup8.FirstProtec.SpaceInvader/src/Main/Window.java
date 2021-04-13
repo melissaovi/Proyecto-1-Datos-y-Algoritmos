@@ -1,6 +1,7 @@
 package Main;
 
 import Enemies.AlienA;
+import Enemies.AliensB;
 import Enemies.AliensBasic;
 import Space_ship.Ship;
 
@@ -16,6 +17,7 @@ public class Window extends JFrame implements Runnable {
     Ship ship = null;
     AliensBasic ene;
     AlienA ali;
+    AliensB aliensB;
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
@@ -53,8 +55,9 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
-        ene=new AliensBasic(0,0,10,5,1);
-        ali=new AlienA(0,100,10,5,1);
+        //ene=new AliensBasic(0,0,10,5,1);
+        //ali=new AlienA(0,100,10,5,1);
+        aliensB=new AliensB(0,0,10,5,1);
     }
    /* public  hitAlienScore() {
         //Add 5 to the score
@@ -68,8 +71,10 @@ public class Window extends JFrame implements Runnable {
     }
 
     public void update(){
-        ene.moveArmy();
-        ali.moveArmy();
+       // ene.moveArmy();
+        //ali.moveArmy();
+        aliensB.moveArmy();
+        draw();
     }
 
     public void draw(){
@@ -88,8 +93,9 @@ public class Window extends JFrame implements Runnable {
         //Draws the players ship
         ship.drawShip(g);
 
-        ene.draw(g);
-        ali.draw(g);
+        //ene.draw(g);
+        //ali.draw(g);
+        aliensB.draw(g);
         g.dispose();
 
         bs.show();

@@ -19,7 +19,7 @@ public class AlienA extends Aliens1{
         this.setEnemies(new ListasEnlazadas<>());
         while (counter < size){
             Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, lvl,0, Load.imageLoad("/alien (2).png"));
-            System.out.println(enemy);
+            //System.out.println(enemy);
             this.getEnemies().insertHead(enemy);
             counter++;
         }

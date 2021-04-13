@@ -113,6 +113,13 @@ public class Enemy {
         this.setHeight(50);
         this.sprite= Load.imageLoad("/Alien_boss.png");
     }
+    public void ChangeBoss() {
+        this.boss =false;
+        this.life =0;
+        this.setWidth(30);
+        this.setHeight(50);
+        this.sprite= Load.imageLoad("/alien (2).png");
+    }
     public boolean getBoss() {
         return boss;
     }
