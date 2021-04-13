@@ -30,40 +30,31 @@ public class Enemy {
         if (without_boss && O){
             this.life-=1;
             hitState = true;
-            Shot.shotHeight = -1;
+            //Shot.shotHeight = -1;
 
         }
         if (hitState) {
             //If it's alreay been shot then return false;
-            //System.out.println("works 3 "+hasboss);
-
-
-                //System.out.println("works 2 "+ Shot.getShotState());
             shotState = true;
             return false;
         }
         if ((x >= posX) && (x <= (posX+width))) {
             //X is ok, now lets check the Y range
             if ((y >= posY) && (y <= (posY+height))) {
-                //System.out.println("works 2 "+ Shot.getShotState());
                 if(getLife()>0  && Shot.getShotState()){
-                    Shot.setShotState(false);
-                    //System.out.println("works 2 "+ this.boss);
+
                     this.life-=1;
                     if (this.boss){
                         System.out.println("works 2 "+ this.life);
-                        Shot.shotHeight = -1;
+
                         return true;
                     }
                     System.out.println("works 2 "+ this.life);
 
                     hitState = false;
 
-
-                    //System.out.println("works "+ Shot.getShotState());
                     return false;
                 }else{
-                    //System.out.println("works 1"+ Shot.getShotState());
                     hitState = true;
                     return true;
                 }

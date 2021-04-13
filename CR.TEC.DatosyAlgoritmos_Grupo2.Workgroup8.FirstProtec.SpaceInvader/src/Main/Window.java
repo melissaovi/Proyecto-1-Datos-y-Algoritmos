@@ -68,8 +68,9 @@ public class Window extends JFrame implements Runnable {
     }
 
     public void update(){
-        ene.moveArmy();
         ali.moveArmy();
+        ene.moveArmy();
+
     }
 
     public void draw(){
