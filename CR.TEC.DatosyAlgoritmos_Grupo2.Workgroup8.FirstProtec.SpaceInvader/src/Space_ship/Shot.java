@@ -1,6 +1,7 @@
 package Space_ship;
 
 import Enemies.AlienA;
+import Enemies.AliensB;
 import Enemies.AliensBasic;
 
 import java.awt.*;
@@ -12,52 +13,67 @@ public class Shot implements Runnable {
     public int x = 0;
     AliensBasic ene;
     AlienA ali;
-    public int shotHeight = 0;
+    AliensB aliensB;
+    public static int shotHeight = 0;
 
     public static boolean shotState = true;
 
-    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb) {
+    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
         ene=aa;
         ali=bb;
+        aliensB=aliensB1;
         Thread thread = new Thread(this);
         thread.start();
     }
     private boolean moveShot(){
+        //System.out.println("X altura=" + shotHeight + " "+ getShotState());
         if(ene.checkShot(x,shotHeight)){
             //ene.getEnemies().delete(i);
             System.out.println("We shot an alien!");
-            shotState = false;
+            shotHeight=-10;
+            setShotState(false);
             return true;
         }
         if(ali.checkShot(x,shotHeight)){
             System.out.println("We shot an alien 2222!");
-            shotState = false;
+            setShotState(false);
+            shotHeight=-10;
             return true;
         }
-
+        if(aliensB.checkShot(x,shotHeight)){
+            System.out.println("We shot an alien 33333!");
+            setShotState(false);
+            shotHeight=-10;
+            //aliensB.reducesize();
+            return true;
+        }
         shotHeight = shotHeight - 2;
         //Si la bala sale del limite de la pantalla
         if (shotHeight < 0) {
-            shotState = false;
+            setShotState(false);
             return true;
         }
         return false;
     }
 
     public void drawShot(Graphics g) {
-        if (shotState) {
+        if (getShotState()) {
             g.setColor(Color.white);
+
         } else {
-            g.setColor(Color.black);
+            g.setColor(Color.red);
+            shotHeight = 0;
+
         }
         g.fillRect(x, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
     }
 
-    public boolean getShotState() {
+    public static boolean getShotState() {
         return shotState;
     }
+    public static void setShotState(boolean shot) { shotState = shot; }
 
     //El thread que mueve la bala
     public void run() {
