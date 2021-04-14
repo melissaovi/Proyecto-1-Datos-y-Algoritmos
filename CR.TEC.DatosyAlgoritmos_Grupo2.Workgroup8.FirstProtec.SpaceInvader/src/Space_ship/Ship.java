@@ -1,5 +1,6 @@
 package Space_ship;
 import Enemies.AlienA;
+import Enemies.AliensB;
 import Enemies.AliensBasic;
 import Main.Assets;
 import Main.Window;
@@ -43,8 +44,9 @@ public class Ship implements MouseListener, MouseMotionListener {
     public void mouseClicked(MouseEvent e) {
         AliensBasic ene=window.getAlienArmy();
         AlienA ali= window.getAli();
+        AliensB aliensB=window.getAliensB();
         //Alien army = window.getAlienArmy();
-        shot = new Shot(x +(50 / 2), heightPosition,ene,ali);
+        shot = new Shot(x +(50 / 2), heightPosition,ene,ali,aliensB);
     }
 
     @Override

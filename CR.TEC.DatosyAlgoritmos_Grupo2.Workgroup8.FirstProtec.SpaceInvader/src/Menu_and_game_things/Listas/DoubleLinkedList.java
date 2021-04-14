@@ -1,22 +1,22 @@
 package Menu_and_game_things.Listas;
 
-public class DoubleLinkedList<T>{
-    private DoubleNode<T> head;
+public class DoubleLinkedList<Object>{
+    private DoubleNode<Object> head;
     private int size;
 
     public DoubleLinkedList() {
         head = null;
         size = 0;
     }
-    public void add(T value) {
-        DoubleNode<T> newNode = new DoubleNode<T>();
+    public void add(Object value) {
+        DoubleNode<Object> newNode = new DoubleNode<Object>();
         newNode.setData(value);
         if(head == null) {
             head = newNode;
             size++;
             return;
         }
-        DoubleNode<T> current = head;
+        DoubleNode<Object> current = head;
         while(current.getNext() != null) {
             current = current.getNext();
         }
@@ -32,7 +32,7 @@ public class DoubleLinkedList<T>{
             size--;
             return;
         }
-        DoubleNode<T> current = head;
+        DoubleNode<Object> current = head;
         int counter = 0;
         while(counter < index-1 && current.getNext() != null) {
             current = current.getNext();
@@ -49,10 +49,10 @@ public class DoubleLinkedList<T>{
         }
     }
 
-    public T get(int index) {
+    public Object get(int index) {
         if(index > size-1)
             return null;
-        DoubleNode<T> current = head;
+        DoubleNode<Object> current = head;
         for(int c = 0; c < index; c++) {
             current = current.getNext();
         }
@@ -70,9 +70,9 @@ public class DoubleLinkedList<T>{
     }
 
     public void swap(int index1, int index2) {
-        T d1 = this.get(index1);
-        T d2 = this.get(index2);
-        DoubleNode<T> current = head;
+        Object d1 = this.get(index1);
+        Object d2 = this.get(index2);
+        DoubleNode<Object> current = head;
         for(int c = 0; c < size; c++) {
             if(this.get(c) == d1) {
                 current.setData(d2);

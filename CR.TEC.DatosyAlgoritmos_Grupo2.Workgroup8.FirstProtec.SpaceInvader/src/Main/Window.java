@@ -1,10 +1,8 @@
 package Main;
-
 import Enemies.AlienA;
 import Enemies.AliensB;
 import Enemies.AliensBasic;
 import Space_ship.Ship;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -21,15 +19,12 @@ public class Window extends JFrame implements Runnable {
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
-
     // Variables para controlar los fps del juego
     private final int FPS = 10;
     private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
     public int shotHeight;
-
-
     public Window(){
         addWindowListener (new java.awt.event.WindowAdapter() {
             @Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { System.exit(0);}});
@@ -38,32 +33,24 @@ public class Window extends JFrame implements Runnable {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Necessary to be able to close the window
         setResizable(false); // To prevent the window from being resized
         setLocationRelativeTo(null); // So that the window is placed in the center of the screen.
-
         setVisible(true); // To make the window visible
-
         canvas = new Canvas(); // A canvas is created
         // The dimensions are established
         canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         canvas.setMaximumSize(new Dimension(WIDTH, HEIGHT));
         canvas.setMinimumSize(new Dimension(WIDTH, HEIGHT));
         canvas.setFocusable(true); // receive keyboard input
-
         // To add the option to move the ship with the mouse
         // NOTE: It must not be null, the player's object must go here
         ship=new Ship(this);
-
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
-        //ene=new AliensBasic(0,0,10,5,1);
-        //ali=new AlienA(0,100,10,5,1);
-        aliensB=new AliensB(0,0,10,5,1);
+        ene=new AliensBasic(0,0,10,5,1);
+        ali=new AlienA(0,0,10,5,1);
+        aliensB=new AliensB(0,100,10,5,1);
     }
-   /* public  hitAlienScore() {
-        //Add 5 to the score
-        score += 5;
-        System.out.println("Current Score = "+score);
-    }*/
+
 
     public static void main(String[] args) {
         new Window().start(); // call the window
@@ -71,8 +58,8 @@ public class Window extends JFrame implements Runnable {
     }
 
     public void update(){
-       // ene.moveArmy();
-        //ali.moveArmy();
+        //ene.moveArmy();
+        ali.moveArmy();
         aliensB.moveArmy();
         draw();
     }
@@ -92,12 +79,10 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
-
         //ene.draw(g);
-        //ali.draw(g);
+        ali.draw(g);
         aliensB.draw(g);
         g.dispose();
-
         bs.show();
     }
 
@@ -147,7 +132,7 @@ public class Window extends JFrame implements Runnable {
     public AlienA getAli(){
         return ali;
     }
-
+    public AliensB getAliensB(){return aliensB;}
     // Method to start the thread.
     private void start(){
         thread = new Thread(this);

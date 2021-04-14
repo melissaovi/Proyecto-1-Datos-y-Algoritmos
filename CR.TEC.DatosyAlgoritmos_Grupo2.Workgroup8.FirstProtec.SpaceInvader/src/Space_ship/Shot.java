@@ -1,6 +1,7 @@
 package Space_ship;
 
 import Enemies.AlienA;
+import Enemies.AliensB;
 import Enemies.AliensBasic;
 
 import java.awt.*;
@@ -12,16 +13,17 @@ public class Shot implements Runnable {
     public int x = 0;
     AliensBasic ene;
     AlienA ali;
+    AliensB aliensB;
     public static int shotHeight = 0;
 
     public static boolean shotState = true;
 
-    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb) {
+    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
         ene=aa;
         ali=bb;
-
+        aliensB=aliensB1;
         Thread thread = new Thread(this);
         thread.start();
     }
@@ -30,16 +32,23 @@ public class Shot implements Runnable {
         if(ene.checkShot(x,shotHeight)){
             //ene.getEnemies().delete(i);
             System.out.println("We shot an alien!");
+            shotHeight=-10;
             setShotState(false);
             return true;
         }
         if(ali.checkShot(x,shotHeight)){
             System.out.println("We shot an alien 2222!");
             setShotState(false);
-
+            shotHeight=-10;
             return true;
         }
-
+        if(aliensB.checkShot(x,shotHeight)){
+            System.out.println("We shot an alien 33333!");
+            setShotState(false);
+            shotHeight=-10;
+            //aliensB.reducesize();
+            return true;
+        }
         shotHeight = shotHeight - 2;
         //Si la bala sale del limite de la pantalla
         if (shotHeight < 0) {

@@ -14,7 +14,7 @@ public class AliensB extends FilaB{
     private int downDistance=50;
     public boolean onlyOnce = true;
     private int bossIndex;
-
+    public static int cont=0;
     public boolean hasboss;
     public AliensB(int posX, int posY, int speed, int size, int lvl) {
         super(posX, posY, speed, size, lvl);
@@ -43,26 +43,26 @@ public class AliensB extends FilaB{
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().size()-1; i >= 0; i--){
-                if (!this.getEnemies().get(i).hasBeenHit()){
-                    if (this.getEnemies().get(i).getPosX()>556){
-                        movingRight=false;
-                        for (int y=0;y<this.getEnemies().size();y++){
-                            //this.getEnemies().swap(random_boss2,1);
-                            /*this.getEnemies().get(3).setPosX(this.getEnemies().get(1).getPosX());
-                            this.getEnemies().get(0).setPosX(this.getEnemies().get(3).getPosX());
-                            this.getEnemies().get(3).setPosY(this.getEnemies().get(1).getPosY());
-                            this.getEnemies().get(0).setPosY(this.getEnemies().get(3).getPosY());*/
-                            //draw(g);
+                if (!this.getEnemies().get(i).hasBeenHit()) {
+                    if (this.getEnemies().get(i).getPosX() > 556) {
+                        movingRight = false;
+                        for (int y = 0; y < this.getEnemies().size(); y++) {
                             Random rand = new Random();
-                            int random=rand.nextInt(this.getEnemies().size()-1);
+                            int random=rand.nextInt(this.getEnemies().size());
+                            //System.out.println(random);
+                            //System.out.println(this.getEnemies().size());
                             this.getEnemies().get(bossIndex).ChangeBoss();
                             this.getEnemies().get(random).Boss();
-
                             bossIndex=random;
-                            this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY()+downDistance);
-                        }
+                            this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY() + downDistance);
+                        }System.out.println(bossIndex);
                         return;
                     }
+
+                } else if (this.getEnemies().get(bossIndex).hasBeenHit() && onlyOnce){
+                    System.out.println("sí");
+                    onlyOnce = false;
+                    checkShot( 0, 0 );
                 }
             }
             for (int i=0;i<this.getEnemies().size();i++){
@@ -79,10 +79,25 @@ public class AliensB extends FilaB{
                         return;
                     }
                 }
+
+                else if (this.getEnemies().get(bossIndex).hasBeenHit() && onlyOnce){
+                    System.out.println("sí");
+                    onlyOnce = false;
+                    checkShot( 0, 0 );
+                    //this.getEnemies().gett(i).hitAlien(0, 0, !onlyOnce);
+                }
             }
             for (int i = 0; i <this.getEnemies().size(); i++){
                 this.getEnemies().get(i).setPosX(this.getEnemies().get(i).getPosX()-this.getSpeed());
             }
         }
+    }
+    public boolean checkShot(int x, int y )  {
+        for (int i = 0;i<this.getEnemies().size();i++){
+            if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
