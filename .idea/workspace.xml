@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f107c5ac-a033-427e-8c7b-3e429711039c" name="Default Changelist" comment="Crear la clase B, crear la clase de DoubleLinkedList para usar en el proyecto">
+    <list default="true" id="f107c5ac-a033-427e-8c7b-3e429711039c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/AliensB.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/AliensB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Enemies/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Main/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/DoubleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/DoubleLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/DoubleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Menu_and_game_things/Listas/DoubleNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Shot.java" beforeDir="false" afterPath="$PROJECT_DIR$/CR.TEC.DatosyAlgoritmos_Grupo2.Workgroup8.FirstProtec.SpaceInvader/src/Space_ship/Shot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Space_ship/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Space_ship/Shot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/AliensB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Enemies/AliensB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Main/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Main/Window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Main/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Main/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/DoubleLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/DoubleLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/DoubleNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Menu_and_game_things/Listas/DoubleNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Space_ship/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CR.TEC.DatosyAlgoritmos_Grupo2.WorkTeam8.FirstProyect.SpaceInvader/Space_ship/Ship.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,13 +82,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -169,6 +169,9 @@
       <workItem from="1618088177009" duration="6876000" />
       <workItem from="1618282970177" duration="261000" />
       <workItem from="1618355283614" duration="5997000" />
+      <workItem from="1618365248582" duration="2678000" />
+      <workItem from="1618444394276" duration="490000" />
+      <workItem from="1618451912772" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="Mejorar el movimiento de los enemigos">
       <created>1617581670492</created>

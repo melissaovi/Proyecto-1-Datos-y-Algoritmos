@@ -6,7 +6,6 @@ import Space_ship.Ship;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-
 public class Window extends JFrame implements Runnable {
     public static final int WIDTH = 600, HEIGHT = 700;
     private Canvas canvas;
@@ -50,13 +49,10 @@ public class Window extends JFrame implements Runnable {
         ali=new AlienA(0,0,10,5,1);
         aliensB=new AliensB(0,100,10,5,1);
     }
-
-
     public static void main(String[] args) {
         new Window().start(); // call the window
 
     }
-
     public void update(){
         //ene.moveArmy();
         ali.moveArmy();
