@@ -1,10 +1,12 @@
 package Enemies;
 import Menu_and_game_things.Listas.ListasEnlazadas;
+
 public abstract class Aliens1 {
     private ListasEnlazadas<Enemy> enemy;
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
+
     public Aliens1(int posX, int posY, int speed, int size, int lvl) {
         this.posX = posX;
         this.posY = posY;
@@ -12,6 +14,7 @@ public abstract class Aliens1 {
         this.lineClass = "EnemyLine";
         this.haveBoss = false;
     }
+
     public ListasEnlazadas<Enemy> getEnemies(){return enemy;}
     public void setEnemies(ListasEnlazadas<Enemy> enemy) {
         this.enemy = enemy;
@@ -44,6 +47,9 @@ public abstract class Aliens1 {
         this.haveBoss = haveBoss;
     }
 
+    public void delEnemyNum(int index){
+        this.enemy.delete(index);
+    }
 
 
 

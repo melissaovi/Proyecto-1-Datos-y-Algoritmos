@@ -43,6 +43,9 @@ public abstract class FilaB {
     public void setHaveBoss(boolean haveBoss) {
         this.haveBoss = haveBoss;
     }
+    public void delEnemyNum(int index){
+        this.enemy.remove(index);
+    }
 }
 
 

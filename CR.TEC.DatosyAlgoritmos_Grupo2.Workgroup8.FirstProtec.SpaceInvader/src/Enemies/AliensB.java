@@ -63,6 +63,7 @@ public class AliensB extends FilaB{
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
+                    this.delEnemyNum(i);
                 }
             }
             for (int i=0;i<this.getEnemies().size();i++){
@@ -84,6 +85,7 @@ public class AliensB extends FilaB{
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
+                    this.delEnemyNum(i);
                     //this.getEnemies().gett(i).hitAlien(0, 0, !onlyOnce);
                 }
             }

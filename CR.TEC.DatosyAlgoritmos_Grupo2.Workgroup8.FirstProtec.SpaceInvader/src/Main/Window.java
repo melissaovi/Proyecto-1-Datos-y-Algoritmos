@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Window extends JFrame implements Runnable {
+
     public static final int WIDTH = 600, HEIGHT = 700;
     private Canvas canvas;
     private Thread thread;
@@ -19,12 +20,14 @@ public class Window extends JFrame implements Runnable {
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
+
     // Variables para controlar los fps del juego
     private final int FPS = 10;
     private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
     public int shotHeight;
+
     public Window(){
         addWindowListener (new java.awt.event.WindowAdapter() {
             @Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { System.exit(0);}});
@@ -34,7 +37,9 @@ public class Window extends JFrame implements Runnable {
         setResizable(false); // To prevent the window from being resized
         setLocationRelativeTo(null); // So that the window is placed in the center of the screen.
         setVisible(true); // To make the window visible
+
         canvas = new Canvas(); // A canvas is created
+
         // The dimensions are established
         canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         canvas.setMaximumSize(new Dimension(WIDTH, HEIGHT));
@@ -46,15 +51,14 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
+
         ene=new AliensBasic(0,0,10,5,1);
         ali=new AlienA(0,0,10,5,1);
         aliensB=new AliensB(0,100,10,5,1);
     }
 
-
     public static void main(String[] args) {
-        new Window().start(); // call the window
-
+        new Window().start();
     }
 
     public void update(){
@@ -125,14 +129,18 @@ public class Window extends JFrame implements Runnable {
         }
         stop();
     }
+
     public AliensBasic getAlienArmy() {
         return ene;
 
     }
+
     public AlienA getAli(){
         return ali;
     }
+
     public AliensB getAliensB(){return aliensB;}
+
     // Method to start the thread.
     private void start(){
         thread = new Thread(this);

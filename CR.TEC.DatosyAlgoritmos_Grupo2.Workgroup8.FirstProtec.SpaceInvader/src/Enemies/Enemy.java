@@ -25,6 +25,7 @@ public class Enemy {
     public boolean hasBeenHit() {
         return hitState;
     }
+
     public boolean hitAlien(int x,int y, boolean without_boss){
         if (without_boss && O){
             this.life-=1;

@@ -1,6 +1,7 @@
 package Menu_and_game_things.Listas;
 
 public class DoubleLinkedList<Object>{
+
     private DoubleNode<Object> head;
     private int size;
 
@@ -8,6 +9,7 @@ public class DoubleLinkedList<Object>{
         head = null;
         size = 0;
     }
+
     public void add(Object value) {
         DoubleNode<Object> newNode = new DoubleNode<Object>();
         newNode.setData(value);
@@ -24,7 +26,6 @@ public class DoubleLinkedList<Object>{
         current.setNext(newNode);
         size++;
     }
-
 
     public void remove(int index) {
         if(index == 0 && index < size) {
@@ -58,7 +59,6 @@ public class DoubleLinkedList<Object>{
         }
         return current.getData();
     }
-
 
     public void clear() {
         this.head = null;

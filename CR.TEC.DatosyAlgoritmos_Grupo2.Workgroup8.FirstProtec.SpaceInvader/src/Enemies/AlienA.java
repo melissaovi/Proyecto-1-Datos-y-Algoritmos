@@ -7,12 +7,14 @@ import java.awt.*;
 import java.util.Random;
 
 public class AlienA extends Aliens1{
+
     private boolean movingRight = true;
     private int downDistance=50;
     public boolean onlyOnce = true;
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
     public boolean hasboss;
+
     public AlienA(int posX, int posY, int speed, int size, int lvl) {
         super(posX, posY, speed, size, lvl);
         int counter = 0;
@@ -27,11 +29,13 @@ public class AlienA extends Aliens1{
         this.setHaveBoss(true);
         hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
+
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
         }
     }
+
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
@@ -48,6 +52,7 @@ public class AlienA extends Aliens1{
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
+                    this.delEnemyNum(i);
                     //this.getEnemies().gett(i).hitAlien(0, 0, !onlyOnce);
                 }
             }
@@ -70,6 +75,7 @@ public class AlienA extends Aliens1{
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
+                    this.delEnemyNum(i);
                     //this.getEnemies().gett(i).hitAlien(0, 0, !onlyOnce);
         }
             }
@@ -78,6 +84,7 @@ public class AlienA extends Aliens1{
             }
         }
     }
+
     public boolean checkShot(int x, int y )  {
 
         for (int i = 0;i<this.getEnemies().getSize();i++){

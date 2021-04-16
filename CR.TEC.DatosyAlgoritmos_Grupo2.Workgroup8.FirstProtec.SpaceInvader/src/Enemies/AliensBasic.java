@@ -35,6 +35,8 @@ public class AliensBasic extends Aliens1{
                         }
                         return;
                     }
+                } else {
+                    this.delEnemyNum(i);
                 }
             }
             for (int i=0;i<this.getEnemies().getSize();i++){
@@ -50,6 +52,8 @@ public class AliensBasic extends Aliens1{
                         }
                         return;
                     }
+                } else {
+                    this.delEnemyNum(i);
                 }
             }
             for (int i = 0; i <this.getEnemies().getSize(); i++){
