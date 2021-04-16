@@ -1,48 +1,50 @@
+/*
 package Enemies;
 
+import Main.Assets;
 import Menu_and_game_things.Listas.ListasEnlazadas;
 import Space_ship.Ship;
+
 import java.awt.*;
 
 public class Alien {
-
-    public int xx = 0, yy = 0;
-    public static int ALIEN_HEIGHT = 10;
-    public static int ALIEN_WIDTH = 15;
+    public int xx = 0, yy = 0,cc=145;
+    public static int ALIEN_HEIGHT = 64;
+    public static int ALIEN_WIDTH = 64;
     private int leftPosition = 0;
     private int heightPosition = 0;
     private boolean hitState = false;
     private Image alienImage = null;
+    boolean movingRight =true;
+    int bajar=0;
+    int cont=0;
+    private Ship ship;
 
-    public boolean moveRight = true;
-    public boolean moveLeft = false;
-    //public boolean moveDown = false;
-
-    int moveDistance = 15;
-    int moveDistanceX = 1;
-
-    Window spaceInvaders = null;
+    public Window window;
     //Alien a=new Alien(spaceInvaders,null);
 
-    private ListasEnlazadas lista = new ListasEnlazadas();
+    public ListasEnlazadas lista = new ListasEnlazadas();
 
-    public Alien(Window si) {
-        spaceInvaders = si;
+
+    public Alien(Window si,Ship s) {
+        window = si;
+        ship=s;
     }
 
-    public void ColocarAliensenListaPrimero(Alien alien) {
-        for (int i = 0; i < 10; i++) {
+public void ColocarAliensenListaPrimero(Alien alien) {
+        for (int i = 0; i <9; i++) {
             lista.insertHead(alien);
+            System.out.println(alien);
         }
-        System.out.println(lista.gett(4));
-        System.out.println(lista.gett(2));
+
     }
+
 
     public boolean hasBeenHit() {
         return hitState;
     }
 
-    public boolean hitAlien(int x, int y) {
+    public boolean  hitAlien(int x, int y) {
         //Is the alien currently alive?
         if (hitState) {
             //If it's alreay been shot then return false;
@@ -73,70 +75,61 @@ public class Alien {
         return heightPosition;
     }
 
-    public void drawAlien(Graphics g) {
+    public void DrawAlien(Graphics g){
+        g.drawImage(Assets.alien,leftPosition,heightPosition,null);
+    }
+
+public void drawAlien(Graphics g) {
         if (!hitState) {
             for (int i = 0; i < lista.getSize(); i++) {
-                g.setColor(Color.red);
-                g.fillRect(leftPosition+50*i, heightPosition, ALIEN_WIDTH, ALIEN_HEIGHT);
+                //g.setColor(Color.red);
+                //g.fillRect(leftPosition+50*i, heightPosition, ALIEN_WIDTH, ALIEN_HEIGHT);
+                g.drawImage(Assets.alien,leftPosition+50*i,heightPosition,null);
             }
         }
     }
 
     public void moveAlien(){
-        for (int i = 0; i < lista.getSize(); i++){
+        aa:
+        for (int i = 0; i < lista.getSize(); i++) {
             Alien ali = (Alien) lista.gett(i);
-            xx = ali.getXPos();
-            yy = ali.getYPos();
-            xx++;
-            ali.setPosition(xx, yy);
+            if (xx<145) {
+                ali.setPosition(ali.getXPos()+1, ali.getYPos());
+                xx++;
+            }else{
+                xx=146;
+                ali.setPosition(ali.getXPos(),ali.getYPos()+2);
+                moveLeft();
+                break aa;
+            }
+        }//
+    }
+    public void moveLeft(){
+        bb:
+        for (int i = 0; i < lista.getSize(); i++) {
+            Alien ali = (Alien) lista.gett(i);
+            if (cc>0){
+                ali.setPosition(ali.getXPos()-1, ali.getYPos());
+                cc--;
+            }else{
+                xx=0;
+                cc=145;
+                ali.setPosition(ali.getXPos(),ali.getYPos()+2);
+                moveAlien();
+                break bb;
+            }
         }
     }
-
-    /*public void moveAlien(){
-        if (moveRight) {
-            for (int i = lista.getSize(); i >= 0; i--) {
-                Alien ali = (Alien) lista.gett(i);
-                if (!ali.hasBeenHit()){
-
-                    if (ali.getXPos() > Window.WIDTH-ALIEN_WIDTH-10){
-                        moveRight = false;
-
-                        for (int y = 0; y < lista.getSize(); y++){
-                            Alien al = (Alien) lista.gett(y);
-                            al.setPosition(al.getXPos(), al.getYPos()+moveDistance);
-                        }
-                        return;
-                    }
-                }
-            }
-
-            for (int i = 0; i < lista.getSize(); i++){
-                Alien ali = (Alien) lista.gett(i);
-                ali.setPosition(ali.getXPos()+moveDistanceX, ali.getYPos());
-            }
-
-        } else {
-            for (int i = 0; i < lista.getSize(); i++) {
-                Alien ali = (Alien) lista.gett(i);
-                if (!ali.hasBeenHit()){
-
-                    if (ali.getXPos() < ALIEN_WIDTH){
-                        moveRight = true;
-
-                        for (int y = 0; y < lista.getSize(); y++){
-                            Alien al = (Alien) lista.gett(y);
-                            al.setPosition(al.getXPos(), al.getYPos()+moveDistance);
-                        }
-                        return;
-                    }
-                }
-            }
-
-            for (int i = 0; i < lista.getSize(); i++){
-                Alien ali = (Alien) lista.gett(i);
-                ali.setPosition(ali.getXPos()-moveDistanceX, ali.getYPos());
+    public boolean checkShot(int x, int y) {
+        for (int i = 0; i <lista.getSize(); i++){
+            Alien ali=(Alien) lista.gett(i);
+            if (ali.hitAlien(x, y)){
+                System.out.println("Detecto colision");
+                return true;
             }
         }
-    }*/
-
+        return false;
+    }
 }
+
+*/

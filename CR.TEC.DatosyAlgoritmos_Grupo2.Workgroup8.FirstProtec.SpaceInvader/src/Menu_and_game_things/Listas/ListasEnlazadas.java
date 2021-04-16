@@ -1,18 +1,16 @@
 package Menu_and_game_things.Listas;
 
-public class ListasEnlazadas {
 
+public class ListasEnlazadas<Object>{
     private Nodo head;
     private Nodo last;
     private int size;
-
     // constructor
     public ListasEnlazadas(){
         head = null;
         last = null;
         size = 0;
     }
-
     // gets the value of a space in the list
     public Object gett(int index){
         int cont = 0;
@@ -21,7 +19,17 @@ public class ListasEnlazadas {
             temp = temp.getNext();
             cont++;
         }
-        return temp.getvalue();
+        return (Object) temp.getvalue();
+    }
+
+    public Nodo gettt(int index){
+        int cont = 0;
+        Nodo temp = head;
+        while (cont < index){
+            temp = temp.getNext();
+            cont++;
+        }
+        return temp;
     }
 
     // add to the beginning of the list
@@ -66,7 +74,6 @@ public class ListasEnlazadas {
             }
         }
     }
-
     // delete a element of list
     public void delete(int index){
         if (index == 0) {
