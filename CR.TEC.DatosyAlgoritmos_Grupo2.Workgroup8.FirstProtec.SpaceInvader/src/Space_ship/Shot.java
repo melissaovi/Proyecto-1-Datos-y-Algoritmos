@@ -29,28 +29,22 @@ public class Shot implements Runnable {
         thread.start();
     }
     private boolean moveShot(){
-        //System.out.println("X altura=" + shotHeight + " "+ getShotState());
         if(ene.checkShot(x,shotHeight)){
-            //ene.getEnemies().delete(i);
-            System.out.println("We shot an alien!");
             shotHeight=-10;
             setShotState(false);
             return true;
         }
         if(ali.checkShot(x,shotHeight)){
-            System.out.println("We shot an alien 2222!");
             setShotState(false);
             shotHeight=-10;
             return true;
         }
         if(aliensB.checkShot(x,shotHeight)){
-            System.out.println("We shot an alien 33333!");
             setShotState(false);
             shotHeight=-10;
             return true;
         }
         if(alienC.checkShot(x,shotHeight)){
-            System.out.println("CCCCC!");
             setShotState(false);
             shotHeight=-10;
             return true;

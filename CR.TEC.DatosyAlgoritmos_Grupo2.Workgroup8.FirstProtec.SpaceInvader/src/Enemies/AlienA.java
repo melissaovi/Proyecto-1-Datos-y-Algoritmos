@@ -11,12 +11,12 @@ public class AlienA extends Aliens1{
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
     public boolean hasboss;
-    public AlienA(int posX, int posY, int speed, int size, int lvl) {
-        super(posX, posY, speed, size, lvl);
+    public AlienA(int posX, int posY, int speed, int size) {
+        super(posX, posY, speed, size);
         int counter = 0;
         this.setEnemies(new ListasEnlazadas<>());
         while (counter < size){
-            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, lvl,0, Load.imageLoad("/alien (2).png"));
+            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50,speed,0, Load.imageLoad("/alien (2).png"));
             //System.out.println(enemy);
             this.getEnemies().insertHead(enemy);
             counter++;

@@ -1,15 +1,15 @@
 package Enemies;
 import Menu_and_game_things.Listas.ListaCircular;
-public abstract class FilaC{
+public abstract class FilaD{
     private ListaCircular<Enemy> enemy;
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
-    public FilaC(int posX, int posY, int speed, int size) {
+    public FilaD(int posX, int posY, int speed, int size) {
         this.posX = posX;
         this.posY = posY;
         this.speed = speed;
-        this.lineClass = "EnemyLine";
+        this.lineClass = "Linea D";
         this.haveBoss = false;
     }
     public ListaCircular<Enemy> getEnemies(){return enemy;}

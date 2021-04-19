@@ -5,7 +5,7 @@ public abstract class FilaB {
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
-    public FilaB(int posX, int posY, int speed, int size, int lvl) {
+    public FilaB(int posX, int posY, int speed, int size) {
         this.posX = posX;
         this.posY = posY;
         this.speed = speed;

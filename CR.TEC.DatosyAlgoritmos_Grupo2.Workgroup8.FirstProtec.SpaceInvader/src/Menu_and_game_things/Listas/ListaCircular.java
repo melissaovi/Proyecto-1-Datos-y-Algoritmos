@@ -48,6 +48,7 @@ public class ListaCircular<Object> {
     public int size() {
         return size;
     }
+    public void swap(int index1, int index2) {}
     public void clear() {
         this.head = null;
         this.size = 0;

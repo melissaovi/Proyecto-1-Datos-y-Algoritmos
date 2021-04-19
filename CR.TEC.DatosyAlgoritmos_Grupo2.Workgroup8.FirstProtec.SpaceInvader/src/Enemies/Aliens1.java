@@ -5,7 +5,7 @@ public abstract class Aliens1 {
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
-    public Aliens1(int posX, int posY, int speed, int size, int lvl) {
+    public Aliens1(int posX, int posY, int speed, int size) {
         this.posX = posX;
         this.posY = posY;
         this.speed = speed;
