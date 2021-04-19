@@ -4,6 +4,7 @@ import Menu_and_game_things.Listas.ListaCircular;
 import java.awt.*;
 import java.util.Random;
 
+import static Space_ship.Shot.shotState;
 public class AlienC extends FilaC{
     private boolean movingRight = true;
     private int downDistance=50;
@@ -11,13 +12,12 @@ public class AlienC extends FilaC{
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
     public boolean hasboss;
-    public AlienC(int posX, int posY, int speed, int size, int lvl) {
-        super(posX, posY, speed, size, lvl);
+    public AlienC(int posX, int posY, int speed, int size) {
+        super(posX, posY, speed, size);
         int counter = 0;
-        this.setEnemies(new ListaCircular<Enemy>());
+        this.setEnemies(new ListaCircular<>());
         while(counter < size) {
-            Random rand = new Random();
-            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, lvl, speed, Load.imageLoad("/alien (2).png"));
+            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, speed,0, Load.imageLoad("/alien (2).png"));
             this.getEnemies().add(enemy);
             counter++;
         }
@@ -47,7 +47,6 @@ public class AlienC extends FilaC{
                         Random rand = new Random();
                         int random=rand.nextInt(this.getEnemies().size());
                         this.getEnemies().get(random).Boss();
-                        System.out.println(this.getEnemies().size());
                     }else if(this.getEnemies().size()==1){
                         this.getEnemies().get(0).Boss();
                     }
@@ -74,7 +73,6 @@ public class AlienC extends FilaC{
                         Random rand = new Random();
                         int random=rand.nextInt(this.getEnemies().size());
                         this.getEnemies().get(random).Boss();
-                        System.out.println(this.getEnemies().size());
                     }else if(this.getEnemies().size()==1){
                         this.getEnemies().get(0).Boss();
                     }
@@ -88,6 +86,12 @@ public class AlienC extends FilaC{
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().size();i++){
             if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {
+                if(this.getEnemies().get(i).getBoss()!=true){
+                    System.out.println(this.getEnemies().size());
+                    return false;
+                }
+                shotState=false;
+                System.out.println(this.getEnemies().size());
                 return true;
             }
         }

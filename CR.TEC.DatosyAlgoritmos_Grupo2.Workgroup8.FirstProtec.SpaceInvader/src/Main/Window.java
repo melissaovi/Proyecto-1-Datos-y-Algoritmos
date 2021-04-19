@@ -1,12 +1,10 @@
 package Main;
-import Enemies.AlienA;
-import Enemies.AlienC;
-import Enemies.AliensB;
-import Enemies.AliensBasic;
+import Enemies.*;
 import Space_ship.Ship;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+
 public class Window extends JFrame implements Runnable {
     public static final int WIDTH = 600, HEIGHT = 700;
     private Canvas canvas;
@@ -17,6 +15,7 @@ public class Window extends JFrame implements Runnable {
     AlienA ali;
     AliensB aliensB;
     AlienC alienC;
+    AlienD alienD;
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
@@ -47,10 +46,11 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
-        ene=new AliensBasic(0,0,10,5,1);
-        ali=new AlienA(0,0,10,5,1);
-        aliensB=new AliensB(0,100,10,5,1);
-        alienC=new AlienC(0,100,10,5,1);
+        ene=new AliensBasic(0,0,10,5);
+        ali=new AlienA(0,0,10,5);
+        aliensB=new AliensB(0,100,10,5);
+        alienC=new AlienC(0,100,10,5);
+        alienD=new AlienD(0,100,10,5);
     }
     public static void main(String[] args) {
         new Window().start(); // call the window
@@ -60,7 +60,7 @@ public class Window extends JFrame implements Runnable {
         //ene.moveArmy();
         //ali.moveArmy();
         //aliensB.moveArmy();
-        alienC.moveArmy();
+        //alienC.moveArmy();
         draw();
     }
     public void draw(){
@@ -77,8 +77,9 @@ public class Window extends JFrame implements Runnable {
         //Draws the players ship
         ship.drawShip(g);
         //ali.draw(g);
-        alienC.draw(g);
+        //alienC.draw(g);
         //aliensB.draw(g);
+        alienD.draw(g);
         g.dispose();
         bs.show();
     }

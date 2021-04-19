@@ -1,5 +1,4 @@
 package Enemies;
-
 import Main.Load;
 import Space_ship.Shot;
 import java.awt.*;
@@ -43,11 +42,9 @@ public class Enemy {
                     //System.out.println("works 2 "+ this.boss);
                     this.life-=1;
                     if (this.boss){
-                        System.out.println("works 2 "+ this.life);
-                        //Shot.shotHeight = -1;
                         return true;
                     }
-                    System.out.println("works 2 "+ this.life);
+                    boss=false;
                     hitState = false;
                     return false;
                 }else{

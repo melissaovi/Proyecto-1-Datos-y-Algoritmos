@@ -16,13 +16,13 @@ public class AliensB extends FilaB{
     private int bossIndex;
     public static int cont=0;
     public boolean hasboss;
-    public AliensB(int posX, int posY, int speed, int size, int lvl) {
-        super(posX, posY, speed, size, lvl);
+    public AliensB(int posX, int posY, int speed, int size) {
+        super(posX, posY, speed, size);
         int counter = 0;
         this.setEnemies(new DoubleLinkedList<>());
         while (counter < size){
             BufferedImage sprite = imageLoad("/alien (2).png");
-            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, lvl,0, sprite);
+            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50,speed,0,sprite);
             //System.out.println(enemy);
             this.getEnemies().add(enemy);
             counter++;
