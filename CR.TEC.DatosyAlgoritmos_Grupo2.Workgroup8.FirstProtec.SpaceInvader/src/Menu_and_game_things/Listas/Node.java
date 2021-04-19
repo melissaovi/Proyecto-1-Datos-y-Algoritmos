@@ -25,3 +25,4 @@ public class Node <Object> {
         this.next = next;
     }
 }
+//Esta clase no se usa puede ser de utilidad
