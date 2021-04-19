@@ -1,7 +1,6 @@
 package Menu_and_game_things.Listas;
 
 public class Nodo {
-
     public Nodo next;
     private Nodo previous;
     public Object fact;
@@ -32,7 +31,7 @@ public class Nodo {
         return fact;
     }
 
-    public void setFact(String fact){
+    public void setFact( Object fact){
         this.fact = fact;
     }
 

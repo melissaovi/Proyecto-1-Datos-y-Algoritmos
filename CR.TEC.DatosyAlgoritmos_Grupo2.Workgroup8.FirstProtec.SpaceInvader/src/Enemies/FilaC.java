@@ -1,19 +1,19 @@
 package Enemies;
-import Menu_and_game_things.Listas.DoubleLinkedList;
-public abstract class FilaB {
-    private DoubleLinkedList<Enemy> enemy;
+import Menu_and_game_things.Listas.ListaCircular;
+public abstract class FilaC{
+    private ListaCircular<Enemy> enemy;
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
-    public FilaB(int posX, int posY, int speed, int size, int lvl) {
+    public FilaC(int posX, int posY, int speed, int size, int lvl) {
         this.posX = posX;
         this.posY = posY;
         this.speed = speed;
         this.lineClass = "EnemyLine";
         this.haveBoss = false;
     }
-    public DoubleLinkedList<Enemy> getEnemies(){return enemy;}
-    public void setEnemies(DoubleLinkedList<Enemy> enemy) {
+    public ListaCircular<Enemy> getEnemies(){return enemy;}
+    public void setEnemies(ListaCircular<Enemy> enemy) {
         this.enemy = enemy;
     }
     public int getPosX() {
@@ -47,5 +47,3 @@ public abstract class FilaB {
         this.enemy.remove(index);
     }
 }
-
-

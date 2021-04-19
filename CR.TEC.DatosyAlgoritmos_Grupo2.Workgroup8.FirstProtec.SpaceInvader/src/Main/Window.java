@@ -1,5 +1,6 @@
 package Main;
 import Enemies.AlienA;
+import Enemies.AlienC;
 import Enemies.AliensB;
 import Enemies.AliensBasic;
 import Space_ship.Ship;
@@ -15,6 +16,7 @@ public class Window extends JFrame implements Runnable {
     AliensBasic ene;
     AlienA ali;
     AliensB aliensB;
+    AlienC alienC;
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
@@ -48,6 +50,7 @@ public class Window extends JFrame implements Runnable {
         ene=new AliensBasic(0,0,10,5,1);
         ali=new AlienA(0,0,10,5,1);
         aliensB=new AliensB(0,100,10,5,1);
+        alienC=new AlienC(0,100,10,5,1);
     }
     public static void main(String[] args) {
         new Window().start(); // call the window
@@ -55,11 +58,11 @@ public class Window extends JFrame implements Runnable {
     }
     public void update(){
         //ene.moveArmy();
-        ali.moveArmy();
-        aliensB.moveArmy();
+        //ali.moveArmy();
+        //aliensB.moveArmy();
+        alienC.moveArmy();
         draw();
     }
-
     public void draw(){
         bs = canvas.getBufferStrategy();
         if (bs == null){
@@ -67,17 +70,15 @@ public class Window extends JFrame implements Runnable {
             return;
         }
         g = bs.getDrawGraphics();
-
         // ===== The drawing starts here
         g.setColor(Color.BLACK);
-
         g.fillRect(0,0,WIDTH, HEIGHT);
 
         //Draws the players ship
         ship.drawShip(g);
-        //ene.draw(g);
-        ali.draw(g);
-        aliensB.draw(g);
+        //ali.draw(g);
+        alienC.draw(g);
+        //aliensB.draw(g);
         g.dispose();
         bs.show();
     }
@@ -129,6 +130,7 @@ public class Window extends JFrame implements Runnable {
         return ali;
     }
     public AliensB getAliensB(){return aliensB;}
+    public AlienC getAlienC(){return alienC;}
     // Method to start the thread.
     private void start(){
         thread = new Thread(this);

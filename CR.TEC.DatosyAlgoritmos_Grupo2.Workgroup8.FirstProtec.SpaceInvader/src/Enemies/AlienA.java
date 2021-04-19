@@ -1,8 +1,6 @@
 package Enemies;
-
 import Main.Load;
 import Menu_and_game_things.Listas.ListasEnlazadas;
-
 import java.awt.*;
 import java.util.Random;
 
@@ -48,7 +46,6 @@ public class AlienA extends Aliens1{
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
-                    //this.getEnemies().gett(i).hitAlien(0, 0, !onlyOnce);
                 }
             }
             for (int i=0;i<this.getEnemies().getSize();i++){
@@ -70,7 +67,6 @@ public class AlienA extends Aliens1{
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
-                    //this.getEnemies().gett(i).hitAlien(0, 0, !onlyOnce);
         }
             }
             for (int i = 0; i <this.getEnemies().getSize(); i++){
@@ -79,9 +75,7 @@ public class AlienA extends Aliens1{
         }
     }
     public boolean checkShot(int x, int y )  {
-
         for (int i = 0;i<this.getEnemies().getSize();i++){
-            //System.out.println("si: "+this.getEnemies().gett(i).getBoss());
             if (this.getEnemies().gett(i).hitAlien(x, y, !onlyOnce)) {
                 return true;
             }

@@ -1,6 +1,7 @@
 package Space_ship;
 
 import Enemies.AlienA;
+import Enemies.AlienC;
 import Enemies.AliensB;
 import Enemies.AliensBasic;
 
@@ -14,16 +15,16 @@ public class Shot implements Runnable {
     AliensBasic ene;
     AlienA ali;
     AliensB aliensB;
+    AlienC alienC;
     public static int shotHeight = 0;
-
     public static boolean shotState = true;
-
-    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1) {
+    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1,AlienC alienC1) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
         ene=aa;
         ali=bb;
         aliensB=aliensB1;
+        alienC=alienC1;
         Thread thread = new Thread(this);
         thread.start();
     }
@@ -46,7 +47,12 @@ public class Shot implements Runnable {
             System.out.println("We shot an alien 33333!");
             setShotState(false);
             shotHeight=-10;
-            //aliensB.reducesize();
+            return true;
+        }
+        if(alienC.checkShot(x,shotHeight)){
+            System.out.println("CCCCC!");
+            setShotState(false);
+            shotHeight=-10;
             return true;
         }
         shotHeight = shotHeight - 2;
@@ -57,7 +63,6 @@ public class Shot implements Runnable {
         }
         return false;
     }
-
     public void drawShot(Graphics g) {
         if (getShotState()) {
             g.setColor(Color.white);
@@ -86,7 +91,6 @@ public class Shot implements Runnable {
             if (moveShot()) {
                 break;
             }
-
         }
     }
 
