@@ -19,11 +19,20 @@ public class AliensBasic extends Aliens1{
             counter++;
         }
     }
+
+    /**
+     * Dibujar aliens
+     * @param g
+     */
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
         }
     }
+
+    /**
+     * Mover aliens básicos
+     */
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
@@ -57,6 +66,12 @@ public class AliensBasic extends Aliens1{
             }
         }
     }
+    /**
+     * Verificar colision
+     * @param x Posicion x
+     * @param y Posicion y de la altura de la bala y el aliens
+     * @return Boolean
+     */
     public boolean checkShot(int x, int y) {
         for (int i = 0;i<this.getEnemies().getSize();i++){
             if (this.getEnemies().gett(i).hitAlien(x, y, false)) {

@@ -5,6 +5,13 @@ public abstract class FilaB {
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
+
+    /**
+     * @param posX
+     * @param posY
+     * @param speed
+     * @param size
+     */
     public FilaB(int posX, int posY, int speed, int size) {
         this.posX = posX;
         this.posY = posY;
@@ -12,7 +19,15 @@ public abstract class FilaB {
         this.lineClass = "EnemyLine";
         this.haveBoss = false;
     }
+
+    /**
+     * @return enemy
+     */
     public DoubleLinkedList<Enemy> getEnemies(){return enemy;}
+
+    /**
+     * @param enemy
+     */
     public void setEnemies(DoubleLinkedList<Enemy> enemy) {
         this.enemy = enemy;
     }
@@ -28,6 +43,10 @@ public abstract class FilaB {
     public void setPosY(int posY) {
         this.posY = posY;
     }
+
+    /**
+     * @return speed
+     */
     public int getSpeed() {
         return speed;
     }
@@ -40,6 +59,10 @@ public abstract class FilaB {
     public boolean isHaveBoss() {
         return haveBoss;
     }
+
+    /**
+     * @param haveBoss
+     */
     public void setHaveBoss(boolean haveBoss) {
         this.haveBoss = haveBoss;
     }
