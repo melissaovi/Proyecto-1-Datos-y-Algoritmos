@@ -37,6 +37,7 @@ public class Enemy {
     }
 
     /**
+     * Si el valor es verdadero no dibuja a el alien, de ser falso lo sigue dibujando
      * @return Boolean
      */
     public boolean hasBeenHit() {
@@ -44,13 +45,15 @@ public class Enemy {
     }
 
     /**
+     * Elimina la vida del alien, de ser 0 retorna el valor de hitState
+     * para dejar de dibujar al alien en específico
      * @param x
      * @param y
      * @param without_boss
      * @return
      */
     public boolean hitAlien(int x,int y, boolean without_boss){
-        if (without_boss && O){
+        if (without_boss){
             this.life-=1;
             hitState = true;
         }

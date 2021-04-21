@@ -28,7 +28,9 @@ public class Shot implements Runnable {
         Thread thread = new Thread(this);
         thread.start();
     }
-    private boolean moveShot(){
+    /**Elimina la bala si se golpea un enemigo
+     */
+     private boolean moveShot(){
         if(ene.checkShot(x,shotHeight)){
             shotHeight=-10;
             setShotState(false);
@@ -57,6 +59,11 @@ public class Shot implements Runnable {
         }
         return false;
     }
+
+    /**
+     * Dibuja la bala
+     * @param g
+     */
     public void drawShot(Graphics g) {
         if (getShotState()) {
             g.setColor(Color.white);
@@ -74,7 +81,9 @@ public class Shot implements Runnable {
     }
     public static void setShotState(boolean shot) { shotState = shot; }
 
-    //El thread que mueve la bala
+    /**
+     * Mantiene le movimiento de la bala siempre que esta exista
+     */
     public void run() {
         while(true) {
             try {

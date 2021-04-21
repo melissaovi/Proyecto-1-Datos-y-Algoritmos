@@ -50,9 +50,12 @@ public class AlienA extends Aliens1{
                         }
                         return;
                     }
-
+                    /**
+                     * Verifica si el jefe a muerto para eliminar la linea (solo se ejecuta una vez de
+                     * ser cierto)
+                     */
                 } else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
-                    System.out.println("sí");
+                    //System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
                 }
