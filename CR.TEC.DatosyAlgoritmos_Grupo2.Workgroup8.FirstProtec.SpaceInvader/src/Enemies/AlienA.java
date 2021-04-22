@@ -5,11 +5,11 @@ import java.awt.*;
 import java.util.Random;
 
 public class AlienA extends Aliens1{
-    private boolean movingRight = true;
-    private int downDistance=50;
+    private boolean movingRight = true; //Si el alien se esta moviendo a la derecha
+    private int downDistance=50;// Distancia de bajada
     public boolean onlyOnce = true;
     Random rand = new Random();
-    int random_boss = rand.nextInt(4);
+    int random_boss = rand.nextInt(4);// Crear jefe random
     public boolean hasboss;
     public AlienA(int posX, int posY, int speed, int size) {
         super(posX, posY, speed, size);
@@ -25,11 +25,20 @@ public class AlienA extends Aliens1{
         this.setHaveBoss(true);
         hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
+
+    /**
+     * Dibujar hilera de aliens
+     * @param g
+     */
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
         }
     }
+
+    /**
+     * Método para mover a los aliens
+     */
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
@@ -41,9 +50,12 @@ public class AlienA extends Aliens1{
                         }
                         return;
                     }
-
+                    /**
+                     * Verifica si el jefe a muerto para eliminar la linea (solo se ejecuta una vez de
+                     * ser cierto)
+                     */
                 } else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
-                    System.out.println("sí");
+                    //System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
                 }
@@ -74,6 +86,13 @@ public class AlienA extends Aliens1{
             }
         }
     }
+
+    /**
+     * Verificar colision
+     * @param x Posicion x
+     * @param y Posicion y de la altura de la bala y el aliens
+     * @return Boolean
+     */
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().getSize();i++){
             if (this.getEnemies().gett(i).hitAlien(x, y, !onlyOnce)) {

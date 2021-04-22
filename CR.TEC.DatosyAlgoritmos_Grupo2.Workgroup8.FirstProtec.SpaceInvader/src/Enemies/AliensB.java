@@ -16,6 +16,13 @@ public class AliensB extends FilaB{
     private int bossIndex;
     public static int cont=0;
     public boolean hasboss;
+
+    /**
+     * @param posX
+     * @param posY
+     * @param speed
+     * @param size
+     */
     public AliensB(int posX, int posY, int speed, int size) {
         super(posX, posY, speed, size);
         int counter = 0;
@@ -34,12 +41,21 @@ public class AliensB extends FilaB{
         this.bossIndex=random_boss2;
         hasboss =this.getEnemies().get(random_boss2).getBoss();
     }
+
+    /**
+     * Dibujar hilera de aliens
+     * @param g
+     */
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().size(); c++) {
             this.getEnemies().get(c).draw(g);
 
         }
     }
+
+    /**
+     * Método para mover a los aliens
+     */
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().size()-1; i >= 0; i--){
@@ -91,6 +107,12 @@ public class AliensB extends FilaB{
             }
         }
     }
+    /**
+     * Verificar colision
+     * @param x Posicion x
+     * @param y Posicion y de la altura de la bala y el aliens
+     * @return Boolean
+     */
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().size();i++){
             if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {

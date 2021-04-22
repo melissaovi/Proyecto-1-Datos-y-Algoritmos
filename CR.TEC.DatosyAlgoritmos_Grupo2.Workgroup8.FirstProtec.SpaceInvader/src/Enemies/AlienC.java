@@ -12,6 +12,14 @@ public class AlienC extends FilaC{
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
     public boolean hasboss;
+
+    /**
+     * Constructor de aliens
+     * @param posX
+     * @param posY
+     * @param speed
+     * @param size
+     */
     public AlienC(int posX, int posY, int speed, int size) {
         super(posX, posY, speed, size);
         int counter = 0;
@@ -25,11 +33,20 @@ public class AlienC extends FilaC{
         this.setHaveBoss(true);
         hasboss=this.getEnemies().get(random_boss).getBoss();
     }
+
+    /**
+     * Dibujar la hilera de aliens
+     * @param g
+     */
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().size(); c++) {
             this.getEnemies().get(c).draw(g);
         }
     }
+
+    /**
+     * Mover a los aliens
+     */
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().size()-1; i >= 0; i--){
@@ -83,6 +100,13 @@ public class AlienC extends FilaC{
             }
         }
     }
+
+    /**
+     * Verificar colision
+     * @param x Posicion x
+     * @param y Posicion y de la altura de la bala y el aliens
+     * @return Boolean
+     */
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().size();i++){
             if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {

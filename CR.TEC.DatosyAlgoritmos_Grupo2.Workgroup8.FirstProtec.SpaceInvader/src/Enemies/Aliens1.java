@@ -1,10 +1,23 @@
 package Enemies;
 import Menu_and_game_things.Listas.ListasEnlazadas;
+
+/**
+ * Clase abstracta de los aliens, el molde el cual contiene los metodos para
+ * crear las hileras de enemigos A, basic
+ */
 public abstract class Aliens1 {
     private ListasEnlazadas<Enemy> enemy;
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
+
+    /**
+     * Constructor de los aliens
+     * @param posX Posicion x de los aliens
+     * @param posY Posicion y de los aliens
+     * @param speed Velocidad de los aliens
+     * @param size Tamaño de los aliens
+     */
     public Aliens1(int posX, int posY, int speed, int size) {
         this.posX = posX;
         this.posY = posY;
@@ -12,7 +25,15 @@ public abstract class Aliens1 {
         this.lineClass = "EnemyLine";
         this.haveBoss = false;
     }
+
+    /**
+     * @return Enemy
+     */
     public ListasEnlazadas<Enemy> getEnemies(){return enemy;}
+
+    /**
+     * @param enemy
+     */
     public void setEnemies(ListasEnlazadas<Enemy> enemy) {
         this.enemy = enemy;
     }
@@ -28,6 +49,10 @@ public abstract class Aliens1 {
     public void setPosY(int posY) {
         this.posY = posY;
     }
+
+    /**
+     * @return speed
+     */
     public int getSpeed() {
         return speed;
     }
@@ -40,6 +65,10 @@ public abstract class Aliens1 {
     public boolean isHaveBoss() {
         return haveBoss;
     }
+
+    /**
+     * @param haveBoss
+     */
     public void setHaveBoss(boolean haveBoss) {
         this.haveBoss = haveBoss;
     }

@@ -1,3 +1,4 @@
+/*
 package Menu_and_game_things.Listas;
 
 public class Node <Object> {
@@ -25,4 +26,4 @@ public class Node <Object> {
         this.next = next;
     }
 }
-//Esta clase no se usa puede ser de utilidad
+//Esta clase no se usa puede ser de utilidad*/
