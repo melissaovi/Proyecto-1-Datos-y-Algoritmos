@@ -12,24 +12,33 @@ public class AlienA extends Aliens1{
     public boolean onlyOnce = true;
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
-    public boolean hasboss;
+    //public boolean hasboss;
     public AlienA(int posX, int posY, int speed, int size, int lvl) {
         super(posX, posY, speed, size, lvl);
         int counter = 0;
         this.setEnemies(new ListasEnlazadas<>());
         while (counter < size){
             Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, lvl,0, Load.imageLoad("/alien (2).png"));
-            System.out.println(enemy);
+            //System.out.println(enemy);
             this.getEnemies().insertHead(enemy);
             counter++;
         }
         this.getEnemies().gett(random_boss).Boss();
         this.setHaveBoss(true);
-        hasboss =this.getEnemies().gett(random_boss).getBoss();
+        //hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
+            //System.out.println(this.getEnemies().gett(c).hasBeenHit() + " " + c);
+            //System.out.println(this.getEnemies().gett(c) + " " + c);
+
+            if (this.getEnemies().gett(c).hasBeenHit()){
+                this.getEnemies().delete(c);
+
+
+            }
+            //System.out.println(this.getEnemies().gett(c).hasBeenHit());
         }
     }
     public void moveArmy(){
@@ -44,7 +53,9 @@ public class AlienA extends Aliens1{
                         return;
                     }
 
-                } else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+                } else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
+                //this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
@@ -66,7 +77,8 @@ public class AlienA extends Aliens1{
                     }
                 }
 
-                else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+                else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
+                //(this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );

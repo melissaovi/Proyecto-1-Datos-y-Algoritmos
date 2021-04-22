@@ -1,7 +1,7 @@
 package Enemies;
 import Menu_and_game_things.Listas.ListasEnlazadas;
 public abstract class Aliens1 {
-    private ListasEnlazadas<Enemy> enemy;
+    private  ListasEnlazadas<Enemy> enemy;
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
@@ -12,7 +12,7 @@ public abstract class Aliens1 {
         this.lineClass = "EnemyLine";
         this.haveBoss = false;
     }
-    public ListasEnlazadas<Enemy> getEnemies(){return enemy;}
+    public  ListasEnlazadas<Enemy> getEnemies(){return enemy;}
     public void setEnemies(ListasEnlazadas<Enemy> enemy) {
         this.enemy = enemy;
     }

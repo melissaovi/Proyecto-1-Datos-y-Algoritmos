@@ -45,9 +45,9 @@ public class Enemy {
 
                     this.life-=1;
                     if (this.boss){
-                        System.out.println("works 2 "+ this.life);
+                        //System.out.println("works 2 "+ this.life);
 
-                        return true;
+                       return true;
                     }
                     System.out.println("works 2 "+ this.life);
 
@@ -111,9 +111,9 @@ public class Enemy {
         return life;
     }
     public void draw(Graphics g) {
-        if(!hitState){
-            g.drawImage(this.getSprite(),this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight(), null);
-        }
+        g.drawImage(this.getSprite(),this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight(), null);
+
+
     }
     public void updated(double delta) {
     }
