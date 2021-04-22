@@ -8,22 +8,31 @@ import java.awt.*;
 public class AliensBasic extends Aliens1{
     private boolean movingRight = true;
     private int downDistance=50;
-    public AliensBasic(int posX, int posY, int speed, int size, int lvl) {
-        super(posX, posY, speed, size, lvl);
+    public AliensBasic(int posX, int posY, int speed, int size) {
+        super(posX, posY, speed, size);
         int counter = 0;
         this.setEnemies(new ListasEnlazadas<>());
         while (counter < size){
-            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50, lvl,0, Load.imageLoad("/alien (2).png"));
+            Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50,speed,0, Load.imageLoad("/alien (2).png"));
             //System.out.println(enemy);
             this.getEnemies().insertHead(enemy);
             counter++;
         }
     }
+
+    /**
+     * Dibujar aliens
+     * @param g
+     */
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
         }
     }
+
+    /**
+     * Mover aliens básicos
+     */
     public void moveArmy(){
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
@@ -35,8 +44,6 @@ public class AliensBasic extends Aliens1{
                         }
                         return;
                     }
-                } else {
-                    this.delEnemyNum(i);
                 }
             }
             for (int i=0;i<this.getEnemies().getSize();i++){
@@ -52,8 +59,6 @@ public class AliensBasic extends Aliens1{
                         }
                         return;
                     }
-                } else {
-                    this.delEnemyNum(i);
                 }
             }
             for (int i = 0; i <this.getEnemies().getSize(); i++){
@@ -61,14 +66,26 @@ public class AliensBasic extends Aliens1{
             }
         }
     }
+    /**
+     * Verificar colision
+     * @param x Posicion x
+     * @param y Posicion y de la altura de la bala y el aliens
+     * @return Boolean
+     */
     public boolean checkShot(int x, int y) {
-        for (int i = 0;i<this.getEnemies().getSize();i++){
+        for (int i = 0; i < this.getEnemies().getSize(); i++){
             if (this.getEnemies().gett(i).hitAlien(x, y, false)) {
+                //this.delEnemy(i);
+                //this.numEnemys();
                 return true;
             }
         }
 
         return false;
+    }
+
+    public void deleter(){
+        // pass
     }
 
 /*    public void update(int sp) {
