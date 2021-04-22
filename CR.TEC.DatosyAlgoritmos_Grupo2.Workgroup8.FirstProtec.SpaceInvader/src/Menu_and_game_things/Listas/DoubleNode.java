@@ -1,8 +1,8 @@
 package Menu_and_game_things.Listas;
 
 public class DoubleNode<Object> {
-    private DoubleNode<Object> next;
-    private DoubleNode<Object> prev;
+    public DoubleNode<Object> next;//De priv a public
+    public DoubleNode<Object> prev;
     private Object data;
 
     public DoubleNode() {
