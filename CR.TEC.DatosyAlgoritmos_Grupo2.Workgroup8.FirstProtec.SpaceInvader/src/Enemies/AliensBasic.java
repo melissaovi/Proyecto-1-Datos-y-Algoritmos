@@ -27,6 +27,8 @@ public class AliensBasic extends Aliens1{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
+            if (this.getEnemies().gett(c).hasBeenHit()){
+                this.getEnemies().delete(c);}
         }
     }
 
