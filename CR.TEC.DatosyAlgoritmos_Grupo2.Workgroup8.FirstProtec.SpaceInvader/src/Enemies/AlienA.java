@@ -1,6 +1,8 @@
 package Enemies;
 import Main.Load;
 import Menu_and_game_things.Listas.ListasEnlazadas;
+import Menu_and_game_things.Score_Table;
+
 import java.awt.*;
 import java.util.Random;
 
@@ -67,6 +69,7 @@ public class AlienA extends Aliens1{
                 } else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
                 //this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     //System.out.println("sí");
+                    Score_Table.setPoint();
                     onlyOnce = false;
                     checkShot( 0, 0 );
                 }
@@ -89,6 +92,7 @@ public class AlienA extends Aliens1{
                 else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
                 //(this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
+                    Score_Table.setPoint();
                     onlyOnce = false;
                     checkShot( 0, 0 );
         }
