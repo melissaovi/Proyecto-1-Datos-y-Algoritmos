@@ -51,7 +51,7 @@ public class Window extends JFrame implements Runnable {
         ali=new AlienA(0,1000,10,5);
         aliensB=new AliensB(0,1000,10,5);
         alienC=new AlienC(0,100,10,5);
-        alienD=new AlienD(0,1000,10,5);
+        alienD=new AlienD(0,100,10,5);
         alienE=new AlienE(0,1000,10,5);
     }
     public static void main(String[] args) {
@@ -62,7 +62,8 @@ public class Window extends JFrame implements Runnable {
         //ene.moveArmy();
         //ali.moveArmy();
         //aliensB.moveArmy();
-        alienC.moveArmy();
+        //alienC.moveArmy();
+        alienD.moveArmy();
         //alienE.moveArmy();
         draw();
     }
@@ -81,9 +82,9 @@ public class Window extends JFrame implements Runnable {
         ship.drawShip(g);
         //ene.draw(g); //Alien Basic
         //ali.draw(g); //Alien A
-        alienC.draw(g);
+        //alienC.draw(g);
         //aliensB.draw(g); //Alien B
-        //alienD.draw(g);
+        alienD.draw(g);
         //alienE.draw(g);
         g.dispose();
         bs.show();

@@ -22,8 +22,8 @@ public class AlienD extends FilaD{
             this.getEnemies().add(enemy);
             counter++;
         }
-        //this.getEnemies().get(random_boss).Boss();
-        //this.setHaveBoss(true);
+        this.getEnemies().get(random_boss).Boss();
+        this.setHaveBoss(true);
         //hasboss=this.getEnemies().get(random_boss).getBoss();
     }
     public void BubbleSortLine() {
@@ -40,17 +40,104 @@ public class AlienD extends FilaD{
             BubbleSortLine();
         }
     }
-    public void Or(){
-        BubbleSortLine();
-        System.out.println(this.getEnemies().get(0).getLife());
-        System.out.println(this.getEnemies().get(1).getLife());
-        System.out.println(this.getEnemies().get(2).getLife());
-        System.out.println(this.getEnemies().get(3).getLife());
-        System.out.println(this.getEnemies().get(4).getLife());
-    }
+    /**
+     * Dibujar hilera de aliens
+     * @param g
+     */
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().size(); c++) {
             this.getEnemies().get(c).draw(g);
+            if (this.getEnemies().get(c).hasBeenHit()){
+                this.getEnemies().remove(c);
+            }
         }
+    }
+    /**
+     * Método para mover a los aliens
+     */
+    public void moveArmy(){
+        if(movingRight){
+            for (int i = this.getEnemies().size()-1; i >= 0; i--){
+                if (!this.getEnemies().get(i).hasBeenHit()) {
+                    if (this.getEnemies().get(i).getPosX() > 556) {
+                        movingRight = false;
+                        for (int y = 0; y < this.getEnemies().size(); y++) {
+                            this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY() + downDistance);
+                        }
+                        return;
+                    }
+                } else if (this.getEnemies().get(i).getBoss() && this.getEnemies().get(i).hasBeenHit() && onlyOnce){
+                    Random rand = new Random();
+                    int random=rand.nextInt(this.getEnemies().size());
+                    if(random>=0){
+                        this.getEnemies().get(random).Boss();
+                        checkShot( 0, 0 );
+                    }else {
+                        System.out.println(random);
+                    }
+/*
+                    if( this.getEnemies().size() !=1){
+                        this.delEnemyNum(i);
+                        Random rand = new Random();
+                        int random=rand.nextInt(this.getEnemies().size());
+                        this.getEnemies().get(random).Boss();
+                    }else if(this.getEnemies().size()==1){
+                        this.getEnemies().get(0).Boss();
+                    }
+*/
+                }
+            }
+            for (int i=0;i<this.getEnemies().size();i++){
+                this.getEnemies().get(i).setPosX(this.getEnemies().get(i).getPosX()+this.getSpeed());
+            }
+        }else {
+            for (int i = 0; i <this.getEnemies().size(); i++){
+                if (!this.getEnemies().get(i).hasBeenHit()){
+                    if(this.getEnemies().get(i).getPosX()<0){
+                        movingRight=true;
+                        for (int y=0;y<this.getEnemies().size();y++){
+                            this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY()+downDistance);
+                        }
+                        return;
+                    }
+                }
+                else if (this.getEnemies().get(i).getBoss() && this.getEnemies().get(i).hasBeenHit() && onlyOnce){
+                    Random rand = new Random();
+                    int random=rand.nextInt(this.getEnemies().size());
+                    if(random>=0){
+                        this.getEnemies().get(random).Boss();
+                        checkShot( 0, 0 );
+                    }else {
+                        System.out.println(random);
+                    }
+                    //onlyOnce = false;
+/*                    if( this.getEnemies().size() !=1){
+                        this.delEnemyNum(i);
+                        Random rand = new Random();
+                        int random=rand.nextInt(this.getEnemies().size());
+                        this.getEnemies().get(random).Boss();
+                    }else if(this.getEnemies().size()==1){
+                        this.getEnemies().get(0).Boss();
+                    }*/
+                }
+            }
+            for (int i = 0; i <this.getEnemies().size(); i++){
+                this.getEnemies().get(i).setPosX(this.getEnemies().get(i).getPosX()-this.getSpeed());
+            }
+        }
+    }
+    /**
+     * Verificar colision
+     * @param x Posicion x
+     * @param y Posicion y de la altura de la bala y el aliens
+     * @return Boolean
+     */
+    public boolean checkShot(int x, int y )  {
+        for (int i = 0;i<this.getEnemies().size();i++){
+            if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
