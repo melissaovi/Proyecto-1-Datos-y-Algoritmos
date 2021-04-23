@@ -70,7 +70,7 @@ public class Window extends JFrame implements Runnable {
         new Window().start(); // call the window
     }
 
-    }
+
     /**
      * Este método actualiza la pantalla inicial para notar el movimiento
      */
