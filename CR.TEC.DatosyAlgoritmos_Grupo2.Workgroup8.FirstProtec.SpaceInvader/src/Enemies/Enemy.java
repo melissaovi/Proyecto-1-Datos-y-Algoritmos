@@ -54,26 +54,28 @@ public class Enemy {
      */
     public boolean hitAlien(int x,int y, boolean without_boss){
         if (without_boss){
-            this.life -= 1;
+            this.life-=1;
             hitState = true;
+            //Shot.shotHeight = -1;
+
         }
         if (hitState) {
+            //If it's alreay been shot then return false;
             shotState = true;
             return false;
         }
         if ((x >= posX) && (x <= (posX+width))) {
             //X is ok, now lets check the Y range
             if ((y >= posY) && (y <= (posY+height))) {
-                //System.out.println("works 2 "+ Shot.getShotState());
                 if(getLife()>0  && Shot.getShotState()){
-                    //Shot.setShotState(false);
-                    //System.out.println("works 2 "+ this.boss);
-                    this.life -= 1;
+
+                    this.life-=1;
                     if (this.boss){
                         return true;
                     }
                     boss=false;
                     hitState = false;
+
                     return false;
                 }else{
                     hitState = true;
@@ -83,11 +85,6 @@ public class Enemy {
         }
         return false;
     }
-
-    public boolean ifHitted(){
-        return hitState;
-    }
-
     public int getPosX() {
         return posX;
     }
@@ -119,9 +116,7 @@ public class Enemy {
     public void setHeight(int height) {
         this.height = height;
     }
-
     public int getSpeed(int speed){return speed;}
-
     public BufferedImage getSprite() {
         return sprite;
     }
@@ -167,8 +162,8 @@ public class Enemy {
      * @param g
      */
     public void draw(Graphics g) {
-        if(!hitState){
-            g.drawImage(this.getSprite(),this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight(), null);
-        }
+        g.drawImage(this.getSprite(),this.getPosX(), this.getPosY(), this.getWidth(), this.getHeight(), null);
+
+
     }
 }

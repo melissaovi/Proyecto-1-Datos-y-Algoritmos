@@ -11,7 +11,6 @@ public class Bullet implements Move{
     private boolean collide;
     private Rectangle rect;
     private BufferedImage sprite;
-
     public Bullet(int posX, int posY, int width, int height, int speed, BufferedImage spriteName) {
         this.posX = posX;
         this.posY = posY;
@@ -22,7 +21,6 @@ public class Bullet implements Move{
         this.sprite=spriteName;
         this.rect = new Rectangle(posX, posY, width, height);
     }
-
     public int getPosX() {
         return posX;
     }

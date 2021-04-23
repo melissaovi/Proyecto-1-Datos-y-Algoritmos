@@ -6,7 +6,7 @@ import Menu_and_game_things.Listas.ListasEnlazadas;
  * crear las hileras de enemigos A, basic
  */
 public abstract class Aliens1 {
-    private ListasEnlazadas<Enemy> enemy;
+    private  ListasEnlazadas<Enemy> enemy;
     private int posX, posY, speed;
     private String lineClass;
     private boolean haveBoss;
@@ -73,13 +73,7 @@ public abstract class Aliens1 {
         this.haveBoss = haveBoss;
     }
 
-    public void delEnemy(int i){
-        enemy.delete(i);
-    }
 
-    public void numEnemys(){
-        System.out.println("hay "+enemy.getSize()+" enemigos en la lista");
-    }
 
 
 

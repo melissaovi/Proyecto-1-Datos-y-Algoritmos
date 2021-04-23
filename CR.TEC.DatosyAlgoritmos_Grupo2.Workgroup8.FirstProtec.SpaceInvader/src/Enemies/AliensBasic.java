@@ -27,6 +27,8 @@ public class AliensBasic extends Aliens1{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
+            if (this.getEnemies().gett(c).hasBeenHit()){
+                this.getEnemies().delete(c);}
         }
     }
 
@@ -73,19 +75,13 @@ public class AliensBasic extends Aliens1{
      * @return Boolean
      */
     public boolean checkShot(int x, int y) {
-        for (int i = 0; i < this.getEnemies().getSize(); i++){
+        for (int i = 0;i<this.getEnemies().getSize();i++){
             if (this.getEnemies().gett(i).hitAlien(x, y, false)) {
-                //this.delEnemy(i);
-                //this.numEnemys();
                 return true;
             }
         }
 
         return false;
-    }
-
-    public void deleter(){
-        // pass
     }
 
 /*    public void update(int sp) {

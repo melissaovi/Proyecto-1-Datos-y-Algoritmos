@@ -12,50 +12,41 @@ public class Shot implements Runnable {
     private int SHOT_WIDTH = 4;
     private int SHOT_HEIGHT = 10;
     public int x = 0;
-    AliensBasic aliBasic;
-    AlienA aliA;
-    AliensB aliB;
-    AlienC aliC;
+    AliensBasic ene;
+    AlienA ali;
+    AliensB aliensB;
+    AlienC alienC;
     public static int shotHeight = 0;
     public static boolean shotState = true;
-
-    /**
-     * Constructor de la clase de la bala
-     * */
-    public Shot(int xVal, int yVal,AliensBasic aliBasic,AlienA aliA,AliensB aliB,AlienC aliC) {
-
+    public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1,AlienC alienC1) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
-
-        this.aliBasic = aliBasic;
-        this.aliA = aliA;
-        this.aliB = aliB;
-        this.aliC = aliC;
-
+        ene=aa;
+        ali=bb;
+        aliensB=aliensB1;
+        alienC=alienC1;
         Thread thread = new Thread(this);
         thread.start();
     }
-
-    /**
-    * Elimina la bala si se golpea un enemigo
-    * */
+    /**Elimina la bala si se golpea un enemigo
+     */
      private boolean moveShot(){
-        if(aliBasic.checkShot(x,shotHeight)){
+        if(ene.checkShot(x,shotHeight)){
             shotHeight=-10;
             setShotState(false);
             return true;
         }
-        if(aliA.checkShot(x,shotHeight)){
+        if(ali.checkShot(x,shotHeight)){
             setShotState(false);
             shotHeight=-10;
             return true;
         }
-        if(aliB.checkShot(x,shotHeight)){
+        if(aliensB.checkShot(x,shotHeight)){
             setShotState(false);
             shotHeight=-10;
             return true;
         }
-        if(aliC.checkShot(x,shotHeight)){
+        if(alienC.checkShot(x,shotHeight)){
             setShotState(false);
             shotHeight=-10;
             return true;
@@ -76,25 +67,22 @@ public class Shot implements Runnable {
     public void drawShot(Graphics g) {
         if (getShotState()) {
             g.setColor(Color.white);
+            g.fillRect(x, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
 
         } else {
-            g.setColor(Color.red);
-            shotHeight = 0;
+            setShotState(true);
 
         }
-        g.fillRect(x, shotHeight, SHOT_WIDTH, SHOT_HEIGHT);
+
     }
 
     public static boolean getShotState() {
         return shotState;
     }
-
-    public static void setShotState(boolean shot) {
-        shotState = shot;
-    }
+    public static void setShotState(boolean shot) { shotState = shot; }
 
     /**
-     * Mantiene el movimiento de la bala siempre que esta exista
+     * Mantiene le movimiento de la bala siempre que esta exista
      */
     public void run() {
         while(true) {

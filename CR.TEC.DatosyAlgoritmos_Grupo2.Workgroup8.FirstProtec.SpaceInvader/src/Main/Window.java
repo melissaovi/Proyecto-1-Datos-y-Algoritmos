@@ -6,28 +6,26 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Window extends JFrame implements Runnable {
-
     public static final int WIDTH = 600, HEIGHT = 700;
-    private boolean running = false;
     private Canvas canvas;
     private Thread thread;
+    private boolean running = false;
     Ship ship = null;
     AliensBasic ene;
     AlienA ali;
     AliensB aliensB;
     AlienC alienC;
     AlienD alienD;
+    AlienE alienE;
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
-
     // Variables para controlar los fps del juego
     private final int FPS = 10;
     private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
     public int shotHeight;
-
     public Window(){
         addWindowListener (new java.awt.event.WindowAdapter() {
             @Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { System.exit(0);}});
@@ -50,25 +48,24 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
         ene=new AliensBasic(0,0,10,5);
-        ali=new AlienA(20,50,10,5);
-        aliensB=new AliensB(0,0,10,5);
-        alienC=new AlienC(0,0,10,5);
-        alienD=new AlienD(0,0,10,5);
+        ali=new AlienA(0,0,10,5);
+        aliensB=new AliensB(0,100,10,5);
+        alienC=new AlienC(0,100,10,5);
+        alienD=new AlienD(0,100,10,5);
+        alienE=new AlienE(0,100,10,5);
     }
-
     public static void main(String[] args) {
         new Window().start(); // call the window
 
     }
-
     public void update(){
         //ene.moveArmy();
-        //ali.moveArmy();
+        ali.moveArmy();
         //aliensB.moveArmy();
         //alienC.moveArmy();
+        //alienE.moveArmy();
         draw();
     }
-
     public void draw(){
         bs = canvas.getBufferStrategy();
         if (bs == null){
@@ -86,7 +83,7 @@ public class Window extends JFrame implements Runnable {
         //alienC.draw(g);
         //aliensB.draw(g);
         //alienD.draw(g);
-        //ene.draw(g);
+        //alienE.draw(g);
         g.dispose();
         bs.show();
     }
@@ -130,7 +127,6 @@ public class Window extends JFrame implements Runnable {
         }
         stop();
     }
-
     public AliensBasic getAlienArmy() {
         return ene;
 
@@ -140,7 +136,6 @@ public class Window extends JFrame implements Runnable {
     }
     public AliensB getAliensB(){return aliensB;}
     public AlienC getAlienC(){return alienC;}
-
     // Method to start the thread.
     private void start(){
         thread = new Thread(this);

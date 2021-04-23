@@ -9,8 +9,8 @@ public class AlienA extends Aliens1{
     private int downDistance=50;// Distancia de bajada
     public boolean onlyOnce = true;
     Random rand = new Random();
+    //public boolean hasboss;
     int random_boss = rand.nextInt(4);// Crear jefe random
-    public boolean hasboss;
     public AlienA(int posX, int posY, int speed, int size) {
         super(posX, posY, speed, size);
         int counter = 0;
@@ -23,9 +23,8 @@ public class AlienA extends Aliens1{
         }
         this.getEnemies().gett(random_boss).Boss();
         this.setHaveBoss(true);
-        hasboss =this.getEnemies().gett(random_boss).getBoss();
+        //hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
-
     /**
      * Dibujar hilera de aliens
      * @param g
@@ -33,9 +32,17 @@ public class AlienA extends Aliens1{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
+            //System.out.println(this.getEnemies().gett(c).hasBeenHit() + " " + c);
+            //System.out.println(this.getEnemies().gett(c) + " " + c);
+
+            if (this.getEnemies().gett(c).hasBeenHit()){
+                this.getEnemies().delete(c);
+
+
+            }
+            //System.out.println(this.getEnemies().gett(c).hasBeenHit());
         }
     }
-
     /**
      * Método para mover a los aliens
      */
@@ -43,6 +50,9 @@ public class AlienA extends Aliens1{
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
                 if (!this.getEnemies().gett(i).hasBeenHit()) {
+                    if(this.getEnemies().gett(i).getPosY() > 500){
+                        System.out.println("gameOver");
+                    }
                     if (this.getEnemies().gett(i).getPosX() > 556) {
                         movingRight = false;
                         for (int y = 0; y < this.getEnemies().getSize(); y++) {
@@ -54,8 +64,9 @@ public class AlienA extends Aliens1{
                      * Verifica si el jefe a muerto para eliminar la linea (solo se ejecuta una vez de
                      * ser cierto)
                      */
-                } else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
-                    System.out.println("sí");
+                } else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
+                //this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+                    //System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
                 }
@@ -75,7 +86,8 @@ public class AlienA extends Aliens1{
                     }
                 }
 
-                else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+                else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
+                //(this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
@@ -96,14 +108,6 @@ public class AlienA extends Aliens1{
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().getSize();i++){
             if (this.getEnemies().gett(i).hitAlien(x, y, !onlyOnce)) {
-                boolean itIsBoss = this.getEnemies().gett(i).ifHitted();
-                if (itIsBoss == false) {
-                    System.out.println("jefe golpeado");
-                    this.numEnemys();
-                } else {
-                    this.delEnemy(i);
-                    this.numEnemys();
-                }
                 return true;
             }
         }
