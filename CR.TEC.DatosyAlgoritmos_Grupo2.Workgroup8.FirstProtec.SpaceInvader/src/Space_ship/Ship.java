@@ -33,8 +33,8 @@ public class Ship implements MouseListener, MouseMotionListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         int newX = e.getX();//Get the mouse coordinates
-        if (newX > (Window.WIDTH - 65)) {
-            x = Window.WIDTH - 65;
+        if (newX > (Window.WIDTH - 250)) {
+            x = Window.WIDTH - 250;
         } else {
             x = newX;
         }

@@ -1,5 +1,7 @@
 package Menu_and_game_things.Listas;
 
+import Menu_and_game_things.Score_Table;
+
 public class ListasEnlazadas<Object>{
     private Nodo head;
     private Nodo last;
@@ -104,6 +106,7 @@ public class ListasEnlazadas<Object>{
 
         }
         size--;
+        Score_Table.setPoint();
     }
 
     // check if the list is empty

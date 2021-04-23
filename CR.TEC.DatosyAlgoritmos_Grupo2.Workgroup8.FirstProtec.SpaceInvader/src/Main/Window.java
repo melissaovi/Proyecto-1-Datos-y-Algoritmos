@@ -1,15 +1,18 @@
 package Main;
 import Enemies.*;
+import Menu_and_game_things.Score_Table;
 import Space_ship.Ship;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Window extends JFrame implements Runnable {
-    public static final int WIDTH = 600, HEIGHT = 700;
+    public static final int WIDTH = 700, HEIGHT = 700;
     private Canvas canvas;
     private Thread thread;
     private boolean running = false;
+
     Ship ship = null;
     AliensBasic ene;
     AlienA ali;
@@ -19,7 +22,8 @@ public class Window extends JFrame implements Runnable {
     AlienE alienE;
     private BufferStrategy bs;
     private Graphics g;
-    private int score = 0;
+    private Graphics b;
+    //private int score = 0;
     // Variables para controlar los fps del juego
     private final int FPS = 10;
     private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
@@ -47,11 +51,11 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
-        ene=new AliensBasic(0,1000,10,5);
-        ali=new AlienA(0,1000,10,5);
+        ene=new AliensBasic(0,0,10,5);
+        ali=new AlienA(0,100,10,5);
         aliensB=new AliensB(0,1000,10,5);
-        alienC=new AlienC(0,100,10,5);
-        alienD=new AlienD(0,100,10,5);
+        alienC=new AlienC(0,1000,10,5);
+        alienD=new AlienD(0,1000,10,5);
         alienE=new AlienE(0,1000,10,5);
     }
     public static void main(String[] args) {
@@ -59,11 +63,11 @@ public class Window extends JFrame implements Runnable {
 
     }
     public void update(){
-        //ene.moveArmy();
-        //ali.moveArmy();
+        ene.moveArmy();
+        ali.moveArmy();
         //aliensB.moveArmy();
         //alienC.moveArmy();
-        alienD.moveArmy();
+        //alienD.moveArmy();
         //alienE.moveArmy();
         draw();
     }
@@ -75,16 +79,19 @@ public class Window extends JFrame implements Runnable {
         }
         g = bs.getDrawGraphics();
         // ===== The drawing starts here
+
         g.setColor(Color.BLACK);
         g.fillRect(0,0,WIDTH, HEIGHT);
 
+
         //Draws the players ship
         ship.drawShip(g);
-        //ene.draw(g); //Alien Basic
-        //ali.draw(g); //Alien A
+        Score_Table.draw(g);
+        ene.draw(g); //Alien Basic
+        ali.draw(g); //Alien A
         //alienC.draw(g);
         //aliensB.draw(g); //Alien B
-        alienD.draw(g);
+        //alienD.draw(g);
         //alienE.draw(g);
         g.dispose();
         bs.show();

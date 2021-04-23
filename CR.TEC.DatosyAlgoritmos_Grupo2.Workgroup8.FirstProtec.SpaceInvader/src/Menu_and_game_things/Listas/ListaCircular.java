@@ -1,4 +1,7 @@
 package Menu_and_game_things.Listas;
+
+import Menu_and_game_things.Score_Table;
+
 public class ListaCircular<Object> {
     private Nodo head;
     private int size;
@@ -27,6 +30,7 @@ public class ListaCircular<Object> {
         if (index == 0 && index < size) {
             head = head.getNext();
             --size;
+            Score_Table.setPoint();
         } else {
             Nodo current = head;
             int counter = 0;
@@ -36,6 +40,7 @@ public class ListaCircular<Object> {
             }
             current.setNext(current.getNext().getNext());
             --size;
+            Score_Table.setPoint();
         }
     }
     public Object get(int index) {

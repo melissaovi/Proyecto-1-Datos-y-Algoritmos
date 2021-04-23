@@ -1,5 +1,7 @@
 package Menu_and_game_things.Listas;
 
+import Menu_and_game_things.Score_Table;
+
 public class ListaCircularDoble<Object>{
     private DoubleNode<Object> primero;
     private  DoubleNode<Object> ultimo;
@@ -32,6 +34,7 @@ public class ListaCircularDoble<Object>{
             primero.getNext().setPrev(primero.getPrev());
             primero = primero.getNext();
             --size;
+            Score_Table.setPoint();
         } else if(index <= size/2) {
             DoubleNode<Object> current = primero;
             for(int c = 0; c <= index; c++) {

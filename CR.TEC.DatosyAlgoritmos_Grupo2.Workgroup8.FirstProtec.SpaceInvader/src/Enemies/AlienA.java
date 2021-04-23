@@ -53,7 +53,7 @@ public class AlienA extends Aliens1{
                     if(this.getEnemies().gett(i).getPosY() > 500){
                         System.out.println("gameOver");
                     }
-                    if (this.getEnemies().gett(i).getPosX() > 556) {
+                    if (this.getEnemies().gett(i).getPosX() > 456) {
                         movingRight = false;
                         for (int y = 0; y < this.getEnemies().getSize(); y++) {
                             this.getEnemies().gett(y).setPosY(this.getEnemies().gett(y).getPosY() + downDistance);

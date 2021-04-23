@@ -38,7 +38,7 @@ public class AlienE extends FilaE{
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
                 if (!this.getEnemies().get(i).hasBeenHit()){
-                    if (this.getEnemies().get(i).getPosX()>556){
+                    if (this.getEnemies().get(i).getPosX()>456){
                         movingRight=false;
                         for (int y=0;y<this.getEnemies().getSize();y++){
                             this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY()+downDistance);

@@ -1,5 +1,7 @@
 package Menu_and_game_things.Listas;
 
+import Menu_and_game_things.Score_Table;
+
 public class DoubleLinkedList<Object>{
     private DoubleNode<Object> head;
     private int size;
@@ -28,6 +30,7 @@ public class DoubleLinkedList<Object>{
         if(index == 0 && index < size) {
             head = head.getNext();
             size--;
+            Score_Table.setPoint();
             return;
         }
         DoubleNode<Object> current = head;
@@ -39,10 +42,12 @@ public class DoubleLinkedList<Object>{
         if(counter == size-2) {
             current.setNext(null);
             size--;
+            Score_Table.setPoint();
             return;
         } else {
             current.setNext(current.getNext().getNext());
             size--;
+            Score_Table.setPoint();
             return;
         }
     }

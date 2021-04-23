@@ -47,9 +47,9 @@ public class Shot implements Runnable {
             return true;
         }
         if(alienC.checkShot(x,shotHeight)){
-            setShotState(false);
-            shotHeight=-10;
-            return true;
+          //  setShotState(false);
+            //shotHeight=-10;
+            //return true;
         }
         shotHeight = shotHeight - 2;
         //Si la bala sale del limite de la pantalla
