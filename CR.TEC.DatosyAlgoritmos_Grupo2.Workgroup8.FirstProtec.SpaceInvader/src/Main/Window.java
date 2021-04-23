@@ -47,12 +47,12 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseListener(ship);
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
-        ene=new AliensBasic(0,0,10,5);
-        ali=new AlienA(0,0,10,5);
-        aliensB=new AliensB(0,100,10,5);
+        ene=new AliensBasic(0,1000,10,5);
+        ali=new AlienA(0,1000,10,5);
+        aliensB=new AliensB(0,1000,10,5);
         alienC=new AlienC(0,100,10,5);
-        alienD=new AlienD(0,100,10,5);
-        alienE=new AlienE(0,100,10,5);
+        alienD=new AlienD(0,1000,10,5);
+        alienE=new AlienE(0,1000,10,5);
     }
     public static void main(String[] args) {
         new Window().start(); // call the window
@@ -60,9 +60,9 @@ public class Window extends JFrame implements Runnable {
     }
     public void update(){
         //ene.moveArmy();
-        ali.moveArmy();
+        //ali.moveArmy();
         //aliensB.moveArmy();
-        //alienC.moveArmy();
+        alienC.moveArmy();
         //alienE.moveArmy();
         draw();
     }
@@ -79,9 +79,10 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
-        ali.draw(g);
-        //alienC.draw(g);
-        //aliensB.draw(g);
+        //ene.draw(g); //Alien Basic
+        //ali.draw(g); //Alien A
+        alienC.draw(g);
+        //aliensB.draw(g); //Alien B
         //alienD.draw(g);
         //alienE.draw(g);
         g.dispose();
