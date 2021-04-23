@@ -25,7 +25,6 @@ public class AlienA extends Aliens1{
         this.setHaveBoss(true);
         hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
-
     /**
      * Dibujar hilera de aliens
      * @param g
@@ -35,7 +34,6 @@ public class AlienA extends Aliens1{
             this.getEnemies().gett(c).draw(g);
         }
     }
-
     /**
      * Método para mover a los aliens
      */
@@ -43,6 +41,9 @@ public class AlienA extends Aliens1{
         if(movingRight){
             for (int i = this.getEnemies().getSize()-1; i >= 0; i--){
                 if (!this.getEnemies().gett(i).hasBeenHit()) {
+                    if(this.getEnemies().gett(i).getPosY() > 500){
+                        System.out.println("gameOver");
+                    }
                     if (this.getEnemies().gett(i).getPosX() > 556) {
                         movingRight = false;
                         for (int y = 0; y < this.getEnemies().getSize(); y++) {
