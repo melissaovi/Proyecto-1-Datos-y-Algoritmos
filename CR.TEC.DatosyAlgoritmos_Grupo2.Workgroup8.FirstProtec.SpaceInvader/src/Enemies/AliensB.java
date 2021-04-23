@@ -103,7 +103,7 @@ public class AliensB extends FilaB{
                             Random rand = new Random();
                             int random=rand.nextInt(this.getEnemies().size());
                             //this.getEnemies().swap(bossIndex,random); // NO FUNCIONA EL SWAP SE VE RARO
-                            this.getEnemies().get(bossIndex).ChangeBoss();
+                            if (this.getEnemies().get(bossIndex) != null){ this.getEnemies().get(bossIndex).ChangeBoss();}
                             this.getEnemies().get(random).Boss();
                             this.bossIndex=random;
                             this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY()+downDistance);
