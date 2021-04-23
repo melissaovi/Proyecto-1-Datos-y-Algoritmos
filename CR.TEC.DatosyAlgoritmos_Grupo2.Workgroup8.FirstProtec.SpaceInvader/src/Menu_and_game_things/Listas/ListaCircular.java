@@ -2,6 +2,10 @@ package Menu_and_game_things.Listas;
 
 import Menu_and_game_things.Score_Table;
 
+/**
+ * Lista Circular
+ * @param <Object>
+ */
 public class ListaCircular<Object> {
     private Nodo head;
     private int size;
@@ -9,6 +13,10 @@ public class ListaCircular<Object> {
         head = null;
         size = 0;
     }
+    /**
+     * Insertar valor
+     * @param value
+     */
     public void add(Object value) {
         Nodo newNode = new Nodo(value,null,head);
         newNode.setFact(value);
@@ -26,6 +34,10 @@ public class ListaCircular<Object> {
             ++size;
         }
     }
+    /**
+     * Remove aliens
+     * @param index
+     */
     public void remove(int index) {
         if (index == 0 && index < size) {
             head = head.getNext();
@@ -43,6 +55,11 @@ public class ListaCircular<Object> {
             Score_Table.setPoint();
         }
     }
+    /**
+     * Método get
+     * @param index
+     * @return
+     */
     public Object get(int index) {
         Nodo current = head;
         for (int i = 0; i < index; i++) {
@@ -50,6 +67,10 @@ public class ListaCircular<Object> {
         }
         return (Object) current.getvalue();
     }
+    /**
+     * Método size
+     * @return
+     */
     public int size() {
         return size;
     }

@@ -2,6 +2,10 @@ package Menu_and_game_things.Listas;
 
 import Menu_and_game_things.Score_Table;
 
+/**
+ * Lista Circular Doble
+ * @param <Object>
+ */
 public class ListaCircularDoble<Object>{
     private DoubleNode<Object> primero;
     private  DoubleNode<Object> ultimo;
