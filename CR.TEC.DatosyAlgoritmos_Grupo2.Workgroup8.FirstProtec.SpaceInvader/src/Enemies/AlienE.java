@@ -80,12 +80,7 @@ public class AlienE extends FilaE{
             }
         }
     }
-/*    public void  move2(){
-        for (int i=0;i<this.getEnemies().getSize();i++){
-            int newPosX = (int) (this.getSpeed()*Math.cos(this.angle % 1));
-            this.getEnemies().get(i).setPosX(this.getEnemies().get(i).getPosY()+newPosX);
-        }
-    }*/
+
     /**
      * Verificar colision
      * @param x Posicion x

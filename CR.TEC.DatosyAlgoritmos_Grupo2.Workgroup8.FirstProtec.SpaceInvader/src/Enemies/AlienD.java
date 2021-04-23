@@ -24,7 +24,7 @@ public class AlienD extends FilaD{
         }
         this.getEnemies().get(random_boss).Boss();
         this.setHaveBoss(true);
-        //hasboss=this.getEnemies().get(random_boss).getBoss();
+
     }
     public void BubbleSortLine() {
         boolean changed = false;
@@ -75,16 +75,7 @@ public class AlienD extends FilaD{
                     }else {
                         System.out.println(random);
                     }
-/*
-                    if( this.getEnemies().size() !=1){
-                        this.delEnemyNum(i);
-                        Random rand = new Random();
-                        int random=rand.nextInt(this.getEnemies().size());
-                        this.getEnemies().get(random).Boss();
-                    }else if(this.getEnemies().size()==1){
-                        this.getEnemies().get(0).Boss();
-                    }
-*/
+
                 }
             }
             for (int i=0;i<this.getEnemies().size();i++){
@@ -110,15 +101,7 @@ public class AlienD extends FilaD{
                     }else {
                         System.out.println(random);
                     }
-                    //onlyOnce = false;
-/*                    if( this.getEnemies().size() !=1){
-                        this.delEnemyNum(i);
-                        Random rand = new Random();
-                        int random=rand.nextInt(this.getEnemies().size());
-                        this.getEnemies().get(random).Boss();
-                    }else if(this.getEnemies().size()==1){
-                        this.getEnemies().get(0).Boss();
-                    }*/
+
                 }
             }
             for (int i = 0; i <this.getEnemies().size(); i++){

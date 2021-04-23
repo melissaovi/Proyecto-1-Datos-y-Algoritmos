@@ -10,7 +10,6 @@ public class AlienC extends FilaC{
     public boolean onlyOnce = true;
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
-    //public boolean hasboss;
 
     /**
      * Constructor de aliens
@@ -30,7 +29,6 @@ public class AlienC extends FilaC{
         }
         this.getEnemies().get(random_boss).Boss();
         this.setHaveBoss(true);
-        //hasboss=this.getEnemies().get(random_boss).getBoss();
     }
 
     /**
@@ -70,16 +68,6 @@ public class AlienC extends FilaC{
                         System.out.println(random);
                     }
 
-/*
-                    if( this.getEnemies().size() !=1){
-                        this.delEnemyNum(i);
-                        Random rand = new Random();
-                        int random=rand.nextInt(this.getEnemies().size());
-                        this.getEnemies().get(random).Boss();
-                    }else if(this.getEnemies().size()==1){
-                        this.getEnemies().get(0).Boss();
-                    }
-*/
 
                 }
             }
@@ -106,15 +94,6 @@ public class AlienC extends FilaC{
                     }else {
                         System.out.println(random);
                     }
-                    //onlyOnce = false;
-/*                    if( this.getEnemies().size() !=1){
-                        this.delEnemyNum(i);
-                        Random rand = new Random();
-                        int random=rand.nextInt(this.getEnemies().size());
-                        this.getEnemies().get(random).Boss();
-                    }else if(this.getEnemies().size()==1){
-                        this.getEnemies().get(0).Boss();
-                    }*/
                 }
             }
             for (int i = 0; i <this.getEnemies().size(); i++){
@@ -130,7 +109,7 @@ public class AlienC extends FilaC{
      */
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().size();i++){
-            //System.out.println("si: "+this.getEnemies().gett(i).getBoss());
+
             if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {
                 return true;
             }

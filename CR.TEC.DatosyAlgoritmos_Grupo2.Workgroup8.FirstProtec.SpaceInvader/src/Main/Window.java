@@ -23,7 +23,6 @@ public class Window extends JFrame implements Runnable {
     private BufferStrategy bs;
     private Graphics g;
     private Graphics b;
-    //private int score = 0;
     // Variables para controlar los fps del juego
     private final int FPS = 10;
     private double TARGETTIME = 1000000000/FPS; // Time measured in nanoseconds
@@ -58,25 +57,35 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseMotionListener(ship);
         add(canvas); // The canvas is added to the window
         ene=new AliensBasic(0,0,10,5);
-        ali=new AlienA(0,1000,10,5);
-        aliensB=new AliensB(0,100,10,5);
-        alienC=new AlienC(0,1000,10,5);
+        ali=new AlienA(0,-200,10,5);
+        aliensB=new AliensB(0,-400,10,5);
+        alienC=new AlienC(0,-600,10,5);
         alienD=new AlienD(0,1000,10,5);
         alienE=new AlienE(0,1000,10,5);
     }
+    /**
+     * Inicia el método para crear la pantalla pricipal
+     */
     public static void main(String[] args) {
         new Window().start(); // call the window
     }
 
+    }
+    /**
+     * Este método actualiza la pantalla inicial para notar el movimiento
+     */
     public void update(){
         ene.moveArmy();
-        //ali.moveArmy();
+        ali.moveArmy();
         aliensB.moveArmy();
-        //alienC.moveArmy();
+        alienC.moveArmy();
         //alienD.moveArmy();
         //alienE.moveArmy();
         draw();
     }
+    /**
+     * Este método llama a dibujar los aliens y la nave
+     */
     public void draw(){
         bs = canvas.getBufferStrategy();
         if (bs == null){
@@ -93,9 +102,9 @@ public class Window extends JFrame implements Runnable {
         //Draws the players ship
         ship.drawShip(g);
         Score_Table.draw(g);
-        //ene.draw(g); //Alien Basic
-        //ali.draw(g); //Alien A
-        //alienC.draw(g);
+        ene.draw(g); //Alien Basic
+        ali.draw(g); //Alien A
+        alienC.draw(g);
         aliensB.draw(g); //Alien B
         //alienD.draw(g);
         //alienE.draw(g);
@@ -107,7 +116,9 @@ public class Window extends JFrame implements Runnable {
         Assets.init(); // con esto cargamos todos los recursos que necesitaramosdesde la
                         // carpeta assets que los carga desde Load
     }
-
+    /**
+     * Este método sirve para limitar los frames
+     */
     @Override
     public void run() { // Game cycle
 

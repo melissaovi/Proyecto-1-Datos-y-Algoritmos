@@ -1,7 +1,8 @@
 package Menu_and_game_things;
 
 import java.awt.*;
-
+/**
+ * La clase se encarga de sumar un punto cuando se elimina un alien y mostrarlo en pantalla*/
 public class Score_Table {
     static int point = 0;
 

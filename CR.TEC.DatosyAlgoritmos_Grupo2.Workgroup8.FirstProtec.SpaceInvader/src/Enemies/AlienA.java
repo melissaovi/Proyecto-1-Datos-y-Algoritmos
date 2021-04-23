@@ -19,13 +19,11 @@ public class AlienA extends Aliens1{
         this.setEnemies(new ListasEnlazadas<>());
         while (counter < size){
             Enemy enemy = new Enemy(posX+counter*50, posY, 30, 50,speed,0, Load.imageLoad("/alien (2).png"));
-            //System.out.println(enemy);
             this.getEnemies().insertHead(enemy);
             counter++;
         }
         this.getEnemies().gett(random_boss).Boss();
         this.setHaveBoss(true);
-        //hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
     /**
      * Dibujar hilera de aliens
@@ -34,15 +32,12 @@ public class AlienA extends Aliens1{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
-            //System.out.println(this.getEnemies().gett(c).hasBeenHit() + " " + c);
-            //System.out.println(this.getEnemies().gett(c) + " " + c);
 
             if (this.getEnemies().gett(c).hasBeenHit()){
                 this.getEnemies().delete(c);
 
-
             }
-            //System.out.println(this.getEnemies().gett(c).hasBeenHit());
+
         }
     }
     /**
@@ -67,8 +62,7 @@ public class AlienA extends Aliens1{
                      * ser cierto)
                      */
                 } else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
-                //this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
-                    //System.out.println("sí");
+
                     Score_Table.setPoint();
                     onlyOnce = false;
                     checkShot( 0, 0 );
@@ -90,7 +84,6 @@ public class AlienA extends Aliens1{
                 }
 
                 else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
-                //(this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
                     Score_Table.setPoint();
                     onlyOnce = false;
