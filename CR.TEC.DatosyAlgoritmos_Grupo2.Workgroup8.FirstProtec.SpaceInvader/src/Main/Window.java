@@ -17,6 +17,7 @@ public class Window extends JFrame implements Runnable {
     AlienC alienC;
     AlienD alienD;
     AlienE alienE;
+    loadEnemys inst = new loadEnemys();
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
@@ -26,6 +27,7 @@ public class Window extends JFrame implements Runnable {
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
     public int shotHeight;
+
     public Window(){
         addWindowListener (new java.awt.event.WindowAdapter() {
             @Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { System.exit(0);}});
@@ -43,27 +45,35 @@ public class Window extends JFrame implements Runnable {
         canvas.setFocusable(true); // receive keyboard input
         // To add the option to move the ship with the mouse
         // NOTE: It must not be null, the player's object must go here
-        ship=new Ship(this);
-        canvas.addMouseListener(ship);
-        canvas.addMouseMotionListener(ship);
+        //ship=new Ship(this);
+        //canvas.addMouseListener(ship);
+        //canvas.addMouseMotionListener(ship);
+        //inst.addmouselis(canvas);
         add(canvas); // The canvas is added to the window
-        ene=new AliensBasic(0,0,10,5);
-        ali=new AlienA(0,0,10,5);
-        aliensB=new AliensB(0,100,10,5);
-        alienC=new AlienC(0,100,10,5);
-        alienD=new AlienD(0,100,10,5);
-        alienE=new AlienE(0,100,10,5);
+        //ene=new AliensBasic(0,0,10,5);
+        //ali=new AlienA(0,0,10,5);
+        //aliensB=new AliensB(0,100,10,5);
+        //alienC=new AlienC(0,100,10,5);
+        //alienD=new AlienD(0,100,10,5);
+        //alienE=new AlienE(0,100,10,5);
+
+        //instanciation.loadEnemyss();
+        inst.orderCreation(this, canvas);
+        //instanciation.printElems();
+
     }
     public static void main(String[] args) {
         new Window().start(); // call the window
 
     }
+
     public void update(){
         //ene.moveArmy();
-        ali.moveArmy();
+        //ali.moveArmy();
         //aliensB.moveArmy();
         //alienC.moveArmy();
         //alienE.moveArmy();
+        inst.update();
         draw();
     }
     public void draw(){
@@ -78,8 +88,9 @@ public class Window extends JFrame implements Runnable {
         g.fillRect(0,0,WIDTH, HEIGHT);
 
         //Draws the players ship
-        ship.drawShip(g);
-        ali.draw(g);
+        //ship.drawShip(g);
+        //inst.draw(g);
+        //ali.draw(g);
         //alienC.draw(g);
         //aliensB.draw(g);
         //alienD.draw(g);
@@ -103,6 +114,7 @@ public class Window extends JFrame implements Runnable {
 
         init();
 
+
         while (running){
             now = System.nanoTime();
             delta += (now - lastTime)/TARGETTIME; // esta division nos deberia dar 1
@@ -110,8 +122,9 @@ public class Window extends JFrame implements Runnable {
             lastTime = now;
 
             if (delta >= 1){
-                update();
-                draw();
+                inst.update();
+                inst.draw();
+                //instanciation.loadEnemyss();
                 delta--; // con esto tenemos ya el ciclo restringido a 60fps
                 frames++;
             }
@@ -127,6 +140,7 @@ public class Window extends JFrame implements Runnable {
         }
         stop();
     }
+
     public AliensBasic getAlienArmy() {
         return ene;
 
@@ -136,6 +150,7 @@ public class Window extends JFrame implements Runnable {
     }
     public AliensB getAliensB(){return aliensB;}
     public AlienC getAlienC(){return alienC;}
+
     // Method to start the thread.
     private void start(){
         thread = new Thread(this);

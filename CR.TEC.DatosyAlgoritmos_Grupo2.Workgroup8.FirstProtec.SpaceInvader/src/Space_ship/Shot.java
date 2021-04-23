@@ -18,6 +18,7 @@ public class Shot implements Runnable {
     AlienC alienC;
     public static int shotHeight = 0;
     public static boolean shotState = true;
+
     public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1,AlienC alienC1) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
