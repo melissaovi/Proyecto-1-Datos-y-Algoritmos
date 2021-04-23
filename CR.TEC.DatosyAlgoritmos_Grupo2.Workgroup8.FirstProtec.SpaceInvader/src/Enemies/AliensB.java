@@ -1,11 +1,8 @@
 package Enemies;
-
 import Menu_and_game_things.Listas.DoubleLinkedList;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-
 import static Main.Load.imageLoad;
 //Fix
 public class AliensB extends FilaB{
@@ -15,7 +12,7 @@ public class AliensB extends FilaB{
     public boolean onlyOnce = true;
     private int bossIndex;
     public static int cont=0;
-    public boolean hasboss;
+    //public boolean hasboss;
 
     /**
      * @param posX
@@ -39,7 +36,7 @@ public class AliensB extends FilaB{
         this.getEnemies().get(random_boss2).Boss();
         this.setHaveBoss(true);
         this.bossIndex=random_boss2;
-        hasboss =this.getEnemies().get(random_boss2).getBoss();
+        //hasboss =this.getEnemies().get(random_boss2).getBoss();
     }
 
     /**
@@ -49,6 +46,9 @@ public class AliensB extends FilaB{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().size(); c++) {
             this.getEnemies().get(c).draw(g);
+            if (this.getEnemies().get(c).hasBeenHit()){
+                this.getEnemies().remove(c);
+            }
 
         }
     }
@@ -64,17 +64,17 @@ public class AliensB extends FilaB{
                         movingRight = false;
                         for (int y = 0; y < this.getEnemies().size(); y++) {
                             Random rand = new Random();
-                            int random=rand.nextInt(this.getEnemies().size()-1);
-                            //this.getEnemies().swap(bossIndex,random);
+                            int random=rand.nextInt(this.getEnemies().size());
+                            //this.getEnemies().swap(bossIndex,random); // NO FUNCIONA EL SWAP SE VE RARO
                             this.getEnemies().get(bossIndex).ChangeBoss();
-                            //this.getEnemies().get(random).Boss();
-                            //this.bossIndex=random;
+                            this.getEnemies().get(random).Boss();
+                            this.bossIndex=random;
                             this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY() + downDistance);
                         }
                         return;
                     }
 
-                } else if (this.getEnemies().get(bossIndex).hasBeenHit() && onlyOnce){
+                } else if (this.getEnemies().get(i).getBoss() && this.getEnemies().get(i).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
@@ -82,6 +82,13 @@ public class AliensB extends FilaB{
                 }
             }
             for (int i=0;i<this.getEnemies().size();i++){
+                //Este cambio rápido parece no tan mala idea
+                Random rand = new Random();
+                int random=rand.nextInt(this.getEnemies().size());
+                //this.getEnemies().swap(bossIndex,random); // NO FUNCIONA EL SWAP SE VE RARO
+                this.getEnemies().get(bossIndex).ChangeBoss();
+                this.getEnemies().get(random).Boss();
+                this.bossIndex=random;
                 this.getEnemies().get(i).setPosX(this.getEnemies().get(i).getPosX()+this.getSpeed());
             }
         }else {
@@ -90,13 +97,19 @@ public class AliensB extends FilaB{
                     if(this.getEnemies().get(i).getPosX()<0){
                         movingRight=true;
                         for (int y=0;y<this.getEnemies().size();y++){
+                            Random rand = new Random();
+                            int random=rand.nextInt(this.getEnemies().size());
+                            //this.getEnemies().swap(bossIndex,random); // NO FUNCIONA EL SWAP SE VE RARO
+                            this.getEnemies().get(bossIndex).ChangeBoss();
+                            this.getEnemies().get(random).Boss();
+                            this.bossIndex=random;
                             this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY()+downDistance);
                         }
                         return;
                     }
                 }
 
-                else if (this.getEnemies().get(bossIndex).hasBeenHit() && onlyOnce){
+                else if (this.getEnemies().get(i).getBoss() && this.getEnemies().get(i).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
