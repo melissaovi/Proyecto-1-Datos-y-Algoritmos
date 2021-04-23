@@ -6,8 +6,14 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * Clase encargada de cargar archivos.
+ */
 public class Load {
 
+    /**
+     * Metodo para cargar imagenes.
+     */
     public static BufferedImage imageLoad(String path){
         try {
             return ImageIO.read(Load.class.getResource(path));
