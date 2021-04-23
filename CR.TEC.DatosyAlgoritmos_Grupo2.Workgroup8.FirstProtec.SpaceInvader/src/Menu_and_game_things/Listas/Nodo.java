@@ -1,5 +1,8 @@
 package Menu_and_game_things.Listas;
 
+/**
+ * Clase Nodo de la lista enlazada
+ */
 public class Nodo {
     public Nodo next;
     private Nodo previous;

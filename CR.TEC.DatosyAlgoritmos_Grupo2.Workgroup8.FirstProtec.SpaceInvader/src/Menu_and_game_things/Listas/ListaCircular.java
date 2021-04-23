@@ -9,10 +9,12 @@ import Menu_and_game_things.Score_Table;
 public class ListaCircular<Object> {
     private Nodo head;
     private int size;
+
     public ListaCircular() {
         head = null;
         size = 0;
     }
+
     /**
      * Insertar valor
      * @param value
@@ -34,6 +36,7 @@ public class ListaCircular<Object> {
             ++size;
         }
     }
+
     /**
      * Remove aliens
      * @param index
@@ -55,6 +58,7 @@ public class ListaCircular<Object> {
             Score_Table.setPoint();
         }
     }
+
     /**
      * Método get
      * @param index
@@ -67,6 +71,7 @@ public class ListaCircular<Object> {
         }
         return (Object) current.getvalue();
     }
+
     /**
      * Método size
      * @return
@@ -74,7 +79,9 @@ public class ListaCircular<Object> {
     public int size() {
         return size;
     }
+
     public void swap(int index1, int index2) {}
+
     public void clear() {
         this.head = null;
         this.size = 0;

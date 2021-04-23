@@ -10,10 +10,12 @@ public class ListaCircularDoble<Object>{
     private DoubleNode<Object> primero;
     private  DoubleNode<Object> ultimo;
     private int size;
+
     public ListaCircularDoble(){
         primero=null;
         ultimo=null;
     }
+
     public void insertNode(Object nodo2){
         DoubleNode nuevo=new DoubleNode();
         nuevo.setData(nodo2);
@@ -32,6 +34,7 @@ public class ListaCircularDoble<Object>{
             size++;
         }
     }
+
     public void remove(int index) {
         if(index == 0) {
             primero.getPrev().setNext(primero.getNext());
@@ -55,6 +58,7 @@ public class ListaCircularDoble<Object>{
             current.getNext().setPrev(current.getPrev());
         }
     }
+
     public Object get(int index) {
         if(index > size-1)
             return null;
@@ -64,6 +68,7 @@ public class ListaCircularDoble<Object>{
         }
         return current.getData();
     }
+
     public void printt(){
         DoubleNode actual= new DoubleNode();
         actual=primero;
@@ -72,9 +77,11 @@ public class ListaCircularDoble<Object>{
             actual=actual.next;
         }while (actual!=primero);
     }
+
     public int getSize(){
         return size;
     }
+
     /*    public void remove(int index) {
         if(index == 0 && index < size) {
             primero = primero.getNext();

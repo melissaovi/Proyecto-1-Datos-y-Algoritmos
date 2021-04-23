@@ -30,6 +30,12 @@ public class Window extends JFrame implements Runnable {
     private double delta = 0; // Almacena el tiempo que ha transcurrido
     private int AVERAGEFPS = FPS;
     public int shotHeight;
+
+    /**
+     * Clase ventana
+     * <p>
+     * Esta es la clase principal.
+     */
     public Window(){
         addWindowListener (new java.awt.event.WindowAdapter() {
             @Override public void windowClosing(java.awt.event.WindowEvent windowEvent) { System.exit(0);}});
@@ -60,8 +66,8 @@ public class Window extends JFrame implements Runnable {
     }
     public static void main(String[] args) {
         new Window().start(); // call the window
-
     }
+
     public void update(){
         ene.moveArmy();
         ali.moveArmy();
@@ -136,6 +142,7 @@ public class Window extends JFrame implements Runnable {
         }
         stop();
     }
+    
     public AliensBasic getAlienArmy() {
         return ene;
 
@@ -145,14 +152,19 @@ public class Window extends JFrame implements Runnable {
     }
     public AliensB getAliensB(){return aliensB;}
     public AlienC getAlienC(){return alienC;}
-    // Method to start the thread.
+
+    /**
+     * Metodo para inicializar el hilo.
+     */
     private void start(){
         thread = new Thread(this);
         thread.start();
         running = true;
     }
 
-    // Method to stop the thread.
+    /**
+     * Metodo para detener el hilo.
+     */
     private void stop(){
         try{
             thread.join();
