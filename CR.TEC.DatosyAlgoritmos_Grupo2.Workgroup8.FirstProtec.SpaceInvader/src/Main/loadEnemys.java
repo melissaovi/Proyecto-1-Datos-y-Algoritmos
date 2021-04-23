@@ -1,8 +1,6 @@
 package Main;
-
 import Enemies.*;
 import Space_ship.Ship;
-
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
@@ -105,4 +103,13 @@ public class loadEnemys {
         g.dispose();
         bs.show();
     }
+
+    public AliensBasic getAlienArmy() {
+        return aliBasic;
+    }
+    public AlienA getAli(){
+        return aliA;
+    }
+    public AliensB getAliensB(){return aliB;}
+    public AlienC getAlienC(){return aliC;}
 }

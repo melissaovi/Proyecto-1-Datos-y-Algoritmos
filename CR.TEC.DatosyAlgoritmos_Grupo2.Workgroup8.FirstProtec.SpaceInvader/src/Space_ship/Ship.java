@@ -5,6 +5,8 @@ import Enemies.AliensB;
 import Enemies.AliensBasic;
 import Main.Assets;
 import Main.Window;
+import Main.loadEnemys;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,6 +15,7 @@ public class Ship implements MouseListener, MouseMotionListener {
 
     public int x = 0;
     Window window=null;
+    loadEnemys lodEnemy = new loadEnemys();
     public int heightPosition = 0;//La posicion de la nave respecto al tamaño de la ventana
     Shot shot = null;//Estado de disparo
 
@@ -42,10 +45,16 @@ public class Ship implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        AliensBasic ene=window.getAlienArmy();
-        AlienA ali= window.getAli();
-        AliensB aliensB=window.getAliensB();
-        AlienC alienC=window.getAlienC();
+        //AliensBasic ene = window.getAlienArmy();
+        //AlienA ali = window.getAli();
+        //AliensB aliensB = window.getAliensB();
+        //AlienC alienC = window.getAlienC();
+
+        AliensBasic ene = lodEnemy.getAlienArmy();
+        AlienA ali = lodEnemy.getAli();
+        AliensB aliensB =  lodEnemy.getAliensB();
+        AlienC alienC = lodEnemy.getAlienC();
+
         //Alien army = window.getAlienArmy();
         shot = new Shot(x +(50 / 2), heightPosition,ene,ali,aliensB,alienC);
     }
