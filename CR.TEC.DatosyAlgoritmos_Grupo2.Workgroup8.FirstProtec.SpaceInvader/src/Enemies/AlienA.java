@@ -9,8 +9,8 @@ public class AlienA extends Aliens1{
     private int downDistance=50;// Distancia de bajada
     public boolean onlyOnce = true;
     Random rand = new Random();
+    //public boolean hasboss;
     int random_boss = rand.nextInt(4);// Crear jefe random
-    public boolean hasboss;
     public AlienA(int posX, int posY, int speed, int size) {
         super(posX, posY, speed, size);
         int counter = 0;
@@ -23,7 +23,7 @@ public class AlienA extends Aliens1{
         }
         this.getEnemies().gett(random_boss).Boss();
         this.setHaveBoss(true);
-        hasboss =this.getEnemies().gett(random_boss).getBoss();
+        //hasboss =this.getEnemies().gett(random_boss).getBoss();
     }
     /**
      * Dibujar hilera de aliens
@@ -32,6 +32,15 @@ public class AlienA extends Aliens1{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().getSize(); c++) {
             this.getEnemies().gett(c).draw(g);
+            //System.out.println(this.getEnemies().gett(c).hasBeenHit() + " " + c);
+            //System.out.println(this.getEnemies().gett(c) + " " + c);
+
+            if (this.getEnemies().gett(c).hasBeenHit()){
+                this.getEnemies().delete(c);
+
+
+            }
+            //System.out.println(this.getEnemies().gett(c).hasBeenHit());
         }
     }
     /**
@@ -55,7 +64,8 @@ public class AlienA extends Aliens1{
                      * Verifica si el jefe a muerto para eliminar la linea (solo se ejecuta una vez de
                      * ser cierto)
                      */
-                } else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+                } else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
+                //this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     //System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );
@@ -76,7 +86,8 @@ public class AlienA extends Aliens1{
                     }
                 }
 
-                else if (this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
+                else if (this.getEnemies().gett(i).getBoss() && this.getEnemies().gett(i).hasBeenHit() && onlyOnce){
+                //(this.getEnemies().gett(random_boss).hasBeenHit() && onlyOnce){
                     System.out.println("sí");
                     onlyOnce = false;
                     checkShot( 0, 0 );

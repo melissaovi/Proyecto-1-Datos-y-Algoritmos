@@ -1,6 +1,5 @@
 package Menu_and_game_things.Listas;
 
-
 public class ListasEnlazadas<Object>{
     private Nodo head;
     private Nodo last;
@@ -16,10 +15,23 @@ public class ListasEnlazadas<Object>{
         int cont = 0;
         Nodo temp = head;
         while (cont < index){
-            temp = temp.getNext();
-            cont++;
+            //System.out.println(cont +" "+index);
+            //System.out.println(temp );
+            //System.out.println(index +" "+ (getSize()-1) );
+            if (index <= getSize()-1) {
+                temp = temp.getNext();
+                cont++;
+            }
+            else {
+                index--;
+            }
+
+
         }
         return (Object) temp.getvalue();
+
+
+
     }
 
     public Nodo gettt(int index){
@@ -81,13 +93,15 @@ public class ListasEnlazadas<Object>{
         } else {
             int cont = 0;
             Nodo temp = head;
-            while(cont < index -1){
+            while(cont < index-1){
+                //System.out.println(index);
+                //System.out.println(temp.getNext());
                 temp = temp.getNext();
                 cont++;
             }
-            temp.setNext(
-                    temp.getNext().getNext()
-            );
+
+            temp.setNext(temp.getNext().getNext());
+
         }
         size--;
     }
