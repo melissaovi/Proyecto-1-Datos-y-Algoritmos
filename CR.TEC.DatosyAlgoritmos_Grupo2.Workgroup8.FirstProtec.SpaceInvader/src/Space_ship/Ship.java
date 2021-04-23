@@ -9,6 +9,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
+/**
+ * Clase de la nave
+ */
 public class Ship implements MouseListener, MouseMotionListener {
 
     public int x = 0;
@@ -22,7 +26,9 @@ public class Ship implements MouseListener, MouseMotionListener {
     public static int SHIP_WIDTH = 50;
 
 
-
+    /**
+     * @param si Referencia de la ventana
+     */
     //Constructor de la clase ship
     public Ship(Window si) {
         window = si;
@@ -68,7 +74,11 @@ public class Ship implements MouseListener, MouseMotionListener {
     @Override
     public void mouseDragged(MouseEvent e) {
     }
-    //Dibujar la nave
+
+    /**
+     * Dibujar la nave
+     * @param g referencia gráfica
+     */
     public void drawShip(Graphics g) {
         g.drawImage(Assets.player, x, 600, null);
 

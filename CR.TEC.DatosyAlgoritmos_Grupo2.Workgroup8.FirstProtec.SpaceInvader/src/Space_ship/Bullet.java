@@ -1,4 +1,4 @@
-package Space_ship;
+/*package Space_ship;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -65,4 +65,4 @@ public class Bullet implements Move{
         this.setPosY(this.getPosY()+this.getSpeed());
         this.setRect();
     }
-}
+}*/

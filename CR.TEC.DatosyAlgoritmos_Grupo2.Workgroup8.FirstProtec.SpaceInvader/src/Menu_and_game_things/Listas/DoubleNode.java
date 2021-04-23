@@ -1,5 +1,9 @@
 package Menu_and_game_things.Listas;
 
+/**
+ * Doble nodo
+ * @param <Object>
+ */
 public class DoubleNode<Object> {
     public DoubleNode<Object> next;//De priv a public
     public DoubleNode<Object> prev;
