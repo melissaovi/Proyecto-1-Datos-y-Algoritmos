@@ -16,6 +16,7 @@ public class Window extends JFrame implements Runnable {
     AliensB aliensB;
     AlienC alienC;
     AlienD alienD;
+    AlienE alienE;
     private BufferStrategy bs;
     private Graphics g;
     private int score = 0;
@@ -51,6 +52,7 @@ public class Window extends JFrame implements Runnable {
         aliensB=new AliensB(0,100,10,5);
         alienC=new AlienC(0,100,10,5);
         alienD=new AlienD(0,100,10,5);
+        alienE=new AlienE(0,100,10,5);
     }
     public static void main(String[] args) {
         new Window().start(); // call the window
@@ -58,9 +60,10 @@ public class Window extends JFrame implements Runnable {
     }
     public void update(){
         //ene.moveArmy();
-        //ali.moveArmy();
+        ali.moveArmy();
         //aliensB.moveArmy();
         //alienC.moveArmy();
+        //alienE.moveArmy();
         draw();
     }
     public void draw(){
@@ -76,10 +79,11 @@ public class Window extends JFrame implements Runnable {
 
         //Draws the players ship
         ship.drawShip(g);
-        //ali.draw(g);
+        ali.draw(g);
         //alienC.draw(g);
         //aliensB.draw(g);
-        alienD.draw(g);
+        //alienD.draw(g);
+        //alienE.draw(g);
         g.dispose();
         bs.show();
     }
