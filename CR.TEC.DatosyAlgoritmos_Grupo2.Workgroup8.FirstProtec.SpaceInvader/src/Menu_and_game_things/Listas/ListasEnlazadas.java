@@ -1,16 +1,23 @@
 package Menu_and_game_things.Listas;
 
+import Menu_and_game_things.Score_Table;
+
+/**
+ * Listas enlazadas
+ * @param <Object>
+ */
 public class ListasEnlazadas<Object>{
     private Nodo head;
     private Nodo last;
     private int size;
+
     // constructor
     public ListasEnlazadas(){
         head = null;
         last = null;
         size = 0;
     }
-    // gets the value of a space in the list
+
     public Object gett(int index){
         int cont = 0;
         Nodo temp = head;
@@ -30,8 +37,6 @@ public class ListasEnlazadas<Object>{
         }
         return (Object) temp.getvalue();
 
-
-
     }
 
     public Nodo gettt(int index){
@@ -44,7 +49,6 @@ public class ListasEnlazadas<Object>{
         return temp;
     }
 
-    // add to the beginning of the list
     public void insertHead(Object obj) {
         if (head == null) {
             head = new Nodo(obj,null,null);
@@ -58,7 +62,6 @@ public class ListasEnlazadas<Object>{
         size++;
     }
 
-    // add to the end of the list
     public void insertLast(Object obj){
         if (head == null){
             last = new Nodo(obj, null, null);
@@ -71,7 +74,6 @@ public class ListasEnlazadas<Object>{
         size++;
     }
 
-    // add in a specific space of the list
     public void insertMiddle(Object obj, int index){
         int cont = 0;
         Nodo temp = head;
@@ -86,7 +88,7 @@ public class ListasEnlazadas<Object>{
             }
         }
     }
-    // delete a element of list
+
     public void delete(int index){
         if (index == 0) {
             head = head.getNext();
@@ -99,20 +101,16 @@ public class ListasEnlazadas<Object>{
                 temp = temp.getNext();
                 cont++;
             }
-
             temp.setNext(temp.getNext().getNext());
-
         }
         size--;
+        Score_Table.setPoint();
     }
 
-    // check if the list is empty
     public boolean estaVacia(){
-        // verifica si la lista esta vacia
         return (head == null)?true:false;
     }
 
-    // returns the list size
     public int getSize(){
         return size;
     }

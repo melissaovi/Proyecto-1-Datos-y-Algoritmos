@@ -6,6 +6,10 @@ import Enemies.AliensB;
 import Enemies.AliensBasic;
 
 import java.awt.*;
+
+/**
+ * Clase de disparo de la nave
+ */
 public class Shot implements Runnable {
     //Atributos de la clase de disparo
     private int shotSpeed = 2;
@@ -19,6 +23,14 @@ public class Shot implements Runnable {
     public static int shotHeight = 0;
     public static boolean shotState = true;
 
+    /**
+     * @param xVal Posicion x de la bala
+     * @param yVal Posicion y de la bala
+     * @param aa   Referencia de los aliens
+     * @param bb    Referencia de los aliens
+     * @param aliensB1 Referencia de los aliens
+     * @param alienC1 Referencia de los aliens
+     */
     public Shot(int xVal, int yVal,AliensBasic aa,AlienA bb,AliensB aliensB1,AlienC alienC1) {
         x = xVal;//La posicion de la bala
         shotHeight = yVal;
@@ -48,9 +60,9 @@ public class Shot implements Runnable {
             return true;
         }
         if(alienC.checkShot(x,shotHeight)){
-            setShotState(false);
-            shotHeight=-10;
-            return true;
+          //  setShotState(false);
+            //shotHeight=-10;
+            //return true;
         }
         shotHeight = shotHeight - 2;
         //Si la bala sale del limite de la pantalla

@@ -1,17 +1,15 @@
 package Enemies;
 import Main.Load;
 import Menu_and_game_things.Listas.ListaCircular;
+
 import java.awt.*;
 import java.util.Random;
-
-import static Space_ship.Shot.shotState;
 public class AlienC extends FilaC{
     private boolean movingRight = true;
     private int downDistance=50;
     public boolean onlyOnce = true;
     Random rand = new Random();
     int random_boss = rand.nextInt(4);
-    public boolean hasboss;
 
     /**
      * Constructor de aliens
@@ -31,7 +29,6 @@ public class AlienC extends FilaC{
         }
         this.getEnemies().get(random_boss).Boss();
         this.setHaveBoss(true);
-        hasboss=this.getEnemies().get(random_boss).getBoss();
     }
 
     /**
@@ -41,6 +38,9 @@ public class AlienC extends FilaC{
     public void draw(Graphics g) {
         for(int c = 0; c < this.getEnemies().size(); c++) {
             this.getEnemies().get(c).draw(g);
+            if (this.getEnemies().get(c).hasBeenHit()){
+                this.getEnemies().remove(c);
+            }
         }
     }
 
@@ -51,22 +51,23 @@ public class AlienC extends FilaC{
         if(movingRight){
             for (int i = this.getEnemies().size()-1; i >= 0; i--){
                 if (!this.getEnemies().get(i).hasBeenHit()) {
-                    if (this.getEnemies().get(i).getPosX() > 556) {
+                    if (this.getEnemies().get(i).getPosX() > 456) {
                         movingRight = false;
                         for (int y = 0; y < this.getEnemies().size(); y++) {
                             this.getEnemies().get(y).setPosY(this.getEnemies().get(y).getPosY() + downDistance);
                         }
                         return;
                     }
-                } else if (this.getEnemies().get(random_boss).hasBeenHit() && onlyOnce){
-                    if( this.getEnemies().size() !=1){
-                        this.delEnemyNum(i);
-                        Random rand = new Random();
-                        int random=rand.nextInt(this.getEnemies().size());
+                } else if (this.getEnemies().get(i).getBoss() && this.getEnemies().get(i).hasBeenHit() && onlyOnce){
+                    Random rand = new Random();
+                    int random=rand.nextInt(this.getEnemies().size());
+                    if(random>=0){
                         this.getEnemies().get(random).Boss();
-                    }else if(this.getEnemies().size()==1){
-                        this.getEnemies().get(0).Boss();
+                        checkShot( 0, 0 );
+                    }else {
+                        System.out.println(random);
                     }
+
 
                 }
             }
@@ -84,14 +85,14 @@ public class AlienC extends FilaC{
                         return;
                     }
                 }
-                else if (this.getEnemies().get(random_boss).hasBeenHit() && onlyOnce){
-                    if( this.getEnemies().size() !=1){
-                        this.delEnemyNum(i);
-                        Random rand = new Random();
-                        int random=rand.nextInt(this.getEnemies().size());
+                else if (this.getEnemies().get(i).getBoss() && this.getEnemies().get(i).hasBeenHit() && onlyOnce){
+                    Random rand = new Random();
+                    int random=rand.nextInt(this.getEnemies().size());
+                    if(random>=0){
                         this.getEnemies().get(random).Boss();
-                    }else if(this.getEnemies().size()==1){
-                        this.getEnemies().get(0).Boss();
+                        checkShot( 0, 0 );
+                    }else {
+                        System.out.println(random);
                     }
                 }
             }
@@ -100,7 +101,6 @@ public class AlienC extends FilaC{
             }
         }
     }
-
     /**
      * Verificar colision
      * @param x Posicion x
@@ -109,13 +109,8 @@ public class AlienC extends FilaC{
      */
     public boolean checkShot(int x, int y )  {
         for (int i = 0;i<this.getEnemies().size();i++){
+
             if (this.getEnemies().get(i).hitAlien(x, y, !onlyOnce)) {
-                if(this.getEnemies().get(i).getBoss()!=true){
-                    System.out.println(this.getEnemies().size());
-                    return false;
-                }
-                shotState=false;
-                System.out.println(this.getEnemies().size());
                 return true;
             }
         }

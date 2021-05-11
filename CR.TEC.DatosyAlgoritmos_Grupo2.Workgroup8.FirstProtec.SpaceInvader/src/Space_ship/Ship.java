@@ -5,17 +5,18 @@ import Enemies.AliensB;
 import Enemies.AliensBasic;
 import Main.Assets;
 import Main.Window;
-import Main.loadEnemys;
-
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
+/**
+ * Clase de la nave
+ */
 public class Ship implements MouseListener, MouseMotionListener {
 
     public int x = 0;
     Window window=null;
-    loadEnemys lodEnemy = new loadEnemys();
     public int heightPosition = 0;//La posicion de la nave respecto al tamaño de la ventana
     Shot shot = null;//Estado de disparo
 
@@ -25,7 +26,9 @@ public class Ship implements MouseListener, MouseMotionListener {
     public static int SHIP_WIDTH = 50;
 
 
-
+    /**
+     * @param si Referencia de la ventana
+     */
     //Constructor de la clase ship
     public Ship(Window si) {
         window = si;
@@ -36,8 +39,8 @@ public class Ship implements MouseListener, MouseMotionListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         int newX = e.getX();//Get the mouse coordinates
-        if (newX > (Window.WIDTH - 65)) {
-            x = Window.WIDTH - 65;
+        if (newX > (Window.WIDTH - 250)) {
+            x = Window.WIDTH - 250;
         } else {
             x = newX;
         }
@@ -45,16 +48,10 @@ public class Ship implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //AliensBasic ene = window.getAlienArmy();
-        //AlienA ali = window.getAli();
-        //AliensB aliensB = window.getAliensB();
-        //AlienC alienC = window.getAlienC();
-
-        AliensBasic ene = lodEnemy.getAlienArmy();
-        AlienA ali = lodEnemy.getAli();
-        AliensB aliensB =  lodEnemy.getAliensB();
-        AlienC alienC = lodEnemy.getAlienC();
-
+        AliensBasic ene=window.getAlienArmy();
+        AlienA ali= window.getAli();
+        AliensB aliensB=window.getAliensB();
+        AlienC alienC=window.getAlienC();
         //Alien army = window.getAlienArmy();
         shot = new Shot(x +(50 / 2), heightPosition,ene,ali,aliensB,alienC);
     }
@@ -77,7 +74,11 @@ public class Ship implements MouseListener, MouseMotionListener {
     @Override
     public void mouseDragged(MouseEvent e) {
     }
-    //Dibujar la nave
+
+    /**
+     * Dibujar la nave
+     * @param g referencia gráfica
+     */
     public void drawShip(Graphics g) {
         g.drawImage(Assets.player, x, 600, null);
 

@@ -1,5 +1,11 @@
 package Menu_and_game_things.Listas;
 
+import Menu_and_game_things.Score_Table;
+
+/**
+ * Lista doblemente enlazada
+ * @param <Object>
+ */
 public class DoubleLinkedList<Object>{
     private DoubleNode<Object> head;
     private int size;
@@ -8,6 +14,11 @@ public class DoubleLinkedList<Object>{
         head = null;
         size = 0;
     }
+
+    /**
+     * Insertar valor
+     * @param value
+     */
     public void add(Object value) {
         DoubleNode<Object> newNode = new DoubleNode<Object>();
         newNode.setData(value);
@@ -24,10 +35,16 @@ public class DoubleLinkedList<Object>{
         current.setNext(newNode);
         size++;
     }
+
+    /**
+     * Remove aliens
+     * @param index
+     */
     public void remove(int index) {
         if(index == 0 && index < size) {
             head = head.getNext();
             size--;
+            Score_Table.setPoint();
             return;
         }
         DoubleNode<Object> current = head;
@@ -39,13 +56,21 @@ public class DoubleLinkedList<Object>{
         if(counter == size-2) {
             current.setNext(null);
             size--;
+            Score_Table.setPoint();
             return;
         } else {
             current.setNext(current.getNext().getNext());
             size--;
+            Score_Table.setPoint();
             return;
         }
     }
+
+    /**
+     * Método get
+     * @param index
+     * @return
+     */
     public Object get(int index) {
         if(index > size-1)
             return null;
@@ -59,6 +84,11 @@ public class DoubleLinkedList<Object>{
         this.head = null;
         this.size = 0;
     }
+
+    /**
+     * Método size
+     * @return
+     */
     public int size() {
         return size;
     }
